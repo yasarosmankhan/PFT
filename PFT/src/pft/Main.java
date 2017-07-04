@@ -33,16 +33,34 @@ public class Main extends javax.swing.JFrame {
         transactionButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
         dasboardButton = new javax.swing.JButton();
+        transactions = new javax.swing.JPanel();
         homePage = new javax.swing.JPanel();
+        savinggoals = new javax.swing.JPanel();
         dashboard = new javax.swing.JPanel();
+        statistics = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         statisticsButton.setText("Statistics");
+        statisticsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statisticsButtonActionPerformed(evt);
+            }
+        });
 
         savinggoalsButton.setText("Saving Goals ");
+        savinggoalsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savinggoalsButtonActionPerformed(evt);
+            }
+        });
 
         transactionButton.setText("Transactions");
+        transactionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transactionButtonActionPerformed(evt);
+            }
+        });
 
         homeButton.setText("Home");
         homeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +93,7 @@ public class Main extends javax.swing.JFrame {
         buttonPanelLayout.setVerticalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(163, Short.MAX_VALUE)
+                .addContainerGap(166, Short.MAX_VALUE)
                 .addComponent(homeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dasboardButton)
@@ -88,17 +106,43 @@ public class Main extends javax.swing.JFrame {
                 .addGap(131, 131, 131))
         );
 
+        transactions.setBackground(new java.awt.Color(153, 153, 153));
+
+        javax.swing.GroupLayout transactionsLayout = new javax.swing.GroupLayout(transactions);
+        transactions.setLayout(transactionsLayout);
+        transactionsLayout.setHorizontalGroup(
+            transactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+        );
+        transactionsLayout.setVerticalGroup(
+            transactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 472, Short.MAX_VALUE)
+        );
+
         homePage.setBackground(new java.awt.Color(0, 102, 204));
 
         javax.swing.GroupLayout homePageLayout = new javax.swing.GroupLayout(homePage);
         homePage.setLayout(homePageLayout);
         homePageLayout.setHorizontalGroup(
             homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGap(0, 584, Short.MAX_VALUE)
         );
         homePageLayout.setVerticalGroup(
             homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+
+        savinggoals.setBackground(new java.awt.Color(255, 255, 0));
+
+        javax.swing.GroupLayout savinggoalsLayout = new javax.swing.GroupLayout(savinggoals);
+        savinggoals.setLayout(savinggoalsLayout);
+        savinggoalsLayout.setHorizontalGroup(
+            savinggoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+        );
+        savinggoalsLayout.setVerticalGroup(
+            savinggoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         dashboard.setBackground(new java.awt.Color(255, 102, 153));
@@ -114,6 +158,19 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 472, Short.MAX_VALUE)
         );
 
+        statistics.setBackground(new java.awt.Color(0, 153, 102));
+
+        javax.swing.GroupLayout statisticsLayout = new javax.swing.GroupLayout(statistics);
+        statistics.setLayout(statisticsLayout);
+        statisticsLayout.setHorizontalGroup(
+            statisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+        );
+        statisticsLayout.setVerticalGroup(
+            statisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 472, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,25 +178,50 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(homePage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(homePage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(statistics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(560, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(savinggoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 148, Short.MAX_VALUE)
-                    .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(655, 655, 655)
+                    .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(661, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(658, 658, 658)
+                    .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(658, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(homePage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(homePage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(60, 60, 60)
+                        .addComponent(statistics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(98, 98, 98)
+                .addComponent(savinggoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(804, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
+                    .addGap(717, 717, 717)
+                    .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(717, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(717, 717, 717)
                     .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 9, Short.MAX_VALUE)))
+                    .addContainerGap(717, Short.MAX_VALUE)))
         );
 
         pack();
@@ -147,13 +229,41 @@ public class Main extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
        dashboard.setVisible(false);
+       transactions.setVisible(false);
+       savinggoals.setVisible(false);
+       statistics.setVisible(false);
        homePage.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void dasboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dasboardButtonActionPerformed
        dashboard.setVisible(true);
+       transactions.setVisible(false);
+       savinggoals.setVisible(false);
+       statistics.setVisible(false);
        homePage.setVisible(false);
     }//GEN-LAST:event_dasboardButtonActionPerformed
+
+    private void transactionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionButtonActionPerformed
+       dashboard.setVisible(false);
+       transactions.setVisible(true);
+       savinggoals.setVisible(false);
+       statistics.setVisible(false);
+       homePage.setVisible(false);
+    }//GEN-LAST:event_transactionButtonActionPerformed
+
+    private void savinggoalsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savinggoalsButtonActionPerformed
+       dashboard.setVisible(false);
+       transactions.setVisible(false);
+       savinggoals.setVisible(true);
+       statistics.setVisible(false);
+       homePage.setVisible(false);    }//GEN-LAST:event_savinggoalsButtonActionPerformed
+
+    private void statisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsButtonActionPerformed
+       dashboard.setVisible(false);
+       transactions.setVisible(false);
+       savinggoals.setVisible(false);
+       statistics.setVisible(true);
+       homePage.setVisible(false);    }//GEN-LAST:event_statisticsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,10 +304,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JButton dasboardButton;
     private javax.swing.JPanel dashboard;
+    private javax.swing.JPanel dashboard1;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel homePage;
+    private javax.swing.JPanel savinggoals;
     private javax.swing.JButton savinggoalsButton;
+    private javax.swing.JPanel statistics;
     private javax.swing.JButton statisticsButton;
     private javax.swing.JButton transactionButton;
+    private javax.swing.JPanel transactions;
     // End of variables declaration//GEN-END:variables
 }
