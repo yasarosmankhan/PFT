@@ -28,9 +28,9 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        statisticsButton = new javax.swing.JButton();
+        savinggoalsButton = new javax.swing.JButton();
+        transactionButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
         dasboardButton = new javax.swing.JButton();
         homePage = new javax.swing.JPanel();
@@ -38,11 +38,11 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        statisticsButton.setText("Statistics");
 
-        jButton2.setText("jButton1");
+        savinggoalsButton.setText("Saving Goals ");
 
-        jButton3.setText("jButton1");
+        transactionButton.setText("Transactions");
 
         homeButton.setText("Home");
         homeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -65,9 +65,9 @@ public class Main extends javax.swing.JFrame {
             .addGroup(buttonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
+                    .addComponent(statisticsButton)
+                    .addComponent(transactionButton)
+                    .addComponent(savinggoalsButton)
                     .addComponent(homeButton)
                     .addComponent(dasboardButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -80,11 +80,11 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dasboardButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(transactionButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(savinggoalsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(statisticsButton)
                 .addGap(131, 131, 131))
         );
 
@@ -124,7 +124,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(homePage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 132, Short.MAX_VALUE)
+                    .addGap(0, 148, Short.MAX_VALUE)
                     .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -196,8 +196,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel dashboard;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel homePage;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton savinggoalsButton;
+    private javax.swing.JButton statisticsButton;
+    private javax.swing.JButton transactionButton;
     // End of variables declaration//GEN-END:variables
 }

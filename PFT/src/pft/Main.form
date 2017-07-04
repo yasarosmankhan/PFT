@@ -30,7 +30,7 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="132" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="148" max="32767" attributes="0"/>
                   <Component id="dashboard" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -66,9 +66,9 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="statisticsButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="transactionButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="savinggoalsButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="homeButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="dasboardButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -84,30 +84,30 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="dasboardButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="transactionButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="savinggoalsButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="statisticsButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="statisticsButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Statistics"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="savinggoalsButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Saving Goals "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="transactionButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Transactions"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="homeButton">
