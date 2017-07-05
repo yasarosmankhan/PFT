@@ -42,6 +42,8 @@ public class MainClass extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         transactions = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        savingGoalsPanel = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -187,6 +189,27 @@ public class MainClass extends javax.swing.JFrame {
 
         getContentPane().add(transactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 590, 500));
 
+        jLabel4.setText("savings");
+
+        javax.swing.GroupLayout savingGoalsPanelLayout = new javax.swing.GroupLayout(savingGoalsPanel);
+        savingGoalsPanel.setLayout(savingGoalsPanelLayout);
+        savingGoalsPanelLayout.setHorizontalGroup(
+            savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(jLabel4)
+                .addContainerGap(310, Short.MAX_VALUE))
+        );
+        savingGoalsPanelLayout.setVerticalGroup(
+            savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel4)
+                .addContainerGap(465, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(savingGoalsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, 500));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -270,7 +293,9 @@ try {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton savingGoalsButton;
+    private javax.swing.JPanel savingGoalsPanel;
     private javax.swing.JButton statisticsButton;
     private javax.swing.JPanel transactions;
     private javax.swing.JButton transactionsButton;
