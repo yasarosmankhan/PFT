@@ -36,14 +36,16 @@ public class MainClass extends javax.swing.JFrame {
         transactionsButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
         dasboardButton = new javax.swing.JButton();
-        dashboardPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         homePanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        transactions = new javax.swing.JPanel();
+        dashboardPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        transactionsPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         savingGoalsPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        statisticsPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,27 +128,6 @@ public class MainClass extends javax.swing.JFrame {
 
         getContentPane().add(buttonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
 
-        jLabel1.setText("dash");
-
-        javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
-        dashboardPanel.setLayout(dashboardPanelLayout);
-        dashboardPanelLayout.setHorizontalGroup(
-            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(jLabel1)
-                .addContainerGap(369, Short.MAX_VALUE))
-        );
-        dashboardPanelLayout.setVerticalGroup(
-            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(475, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(dashboardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, -1));
-
         jLabel2.setText("home");
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
@@ -168,26 +149,51 @@ public class MainClass extends javax.swing.JFrame {
 
         getContentPane().add(homePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, 500));
 
+        jLabel1.setText("dash");
+
+        javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
+        dashboardPanel.setLayout(dashboardPanelLayout);
+        dashboardPanelLayout.setHorizontalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(jLabel1)
+                .addContainerGap(369, Short.MAX_VALUE))
+        );
+        dashboardPanelLayout.setVerticalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(475, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(dashboardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, -1));
+
+        transactionsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
+
         jLabel3.setText("transaction");
 
-        javax.swing.GroupLayout transactionsLayout = new javax.swing.GroupLayout(transactions);
-        transactions.setLayout(transactionsLayout);
-        transactionsLayout.setHorizontalGroup(
-            transactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(transactionsLayout.createSequentialGroup()
+        javax.swing.GroupLayout transactionsPanelLayout = new javax.swing.GroupLayout(transactionsPanel);
+        transactionsPanel.setLayout(transactionsPanelLayout);
+        transactionsPanelLayout.setHorizontalGroup(
+            transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transactionsPanelLayout.createSequentialGroup()
                 .addGap(233, 233, 233)
                 .addComponent(jLabel3)
                 .addContainerGap(303, Short.MAX_VALUE))
         );
-        transactionsLayout.setVerticalGroup(
-            transactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(transactionsLayout.createSequentialGroup()
+        transactionsPanelLayout.setVerticalGroup(
+            transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transactionsPanelLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel3)
                 .addContainerGap(458, Short.MAX_VALUE))
         );
 
-        getContentPane().add(transactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 590, 500));
+        getContentPane().add(transactionsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 590, 500));
+
+        savingGoalsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
         jLabel4.setText("savings");
 
@@ -210,6 +216,29 @@ public class MainClass extends javax.swing.JFrame {
 
         getContentPane().add(savingGoalsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, 500));
 
+        statisticsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
+
+        jLabel5.setText("stats");
+
+        javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
+        statisticsPanel.setLayout(statisticsPanelLayout);
+        statisticsPanelLayout.setHorizontalGroup(
+            statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statisticsPanelLayout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jLabel5)
+                .addContainerGap(341, Short.MAX_VALUE))
+        );
+        statisticsPanelLayout.setVerticalGroup(
+            statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statisticsPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel5)
+                .addContainerGap(463, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(statisticsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 610, 500));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -217,25 +246,66 @@ public class MainClass extends javax.swing.JFrame {
         
         dashboardPanel.setVisible(true);
         homePanel.setVisible(false);
+        transactionsPanel.setVisible(false);
+        savingGoalsPanel.setVisible(false);
+        statisticsPanel.setVisible(false);
+        savingGoalsButton.setEnabled(true);
+        homeButton.setEnabled(true);
+        dasboardButton.setEnabled(false);
+        transactionsButton.setEnabled(true);
+        statisticsButton.setEnabled(true);
     }//GEN-LAST:event_dasboardButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dashboardPanel.setVisible(false);
         homePanel.setVisible(true);
+        transactionsPanel.setVisible(false);
+        savingGoalsPanel.setVisible(false);
+        statisticsPanel.setVisible(false);
+        savingGoalsButton.setEnabled(true);
+        homeButton.setEnabled(false);
+        dasboardButton.setEnabled(true);
+        transactionsButton.setEnabled(true);
+        statisticsButton.setEnabled(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void transactionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionsButtonActionPerformed
             dashboardPanel.setVisible(false);
         homePanel.setVisible(false);
-        transactions.setVisible(true);
+        transactionsPanel.setVisible(true);
+        savingGoalsPanel.setVisible(false);
+        statisticsPanel.setVisible(false);
+        savingGoalsButton.setEnabled(true);
+        homeButton.setEnabled(true);
+        dasboardButton.setEnabled(true);
+        transactionsButton.setEnabled(false);
+        statisticsButton.setEnabled(true);
     }//GEN-LAST:event_transactionsButtonActionPerformed
 
     private void savingGoalsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsButtonActionPerformed
-       
+       dashboardPanel.setVisible(false);
+        homePanel.setVisible(false);
+        transactionsPanel.setVisible(false);
+        savingGoalsPanel.setVisible(true);
+        statisticsPanel.setVisible(false);
+        savingGoalsButton.setEnabled(false);
+        homeButton.setEnabled(true);
+        dasboardButton.setEnabled(true);
+        transactionsButton.setEnabled(true);
+        statisticsButton.setEnabled(true);
     }//GEN-LAST:event_savingGoalsButtonActionPerformed
 
     private void statisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsButtonActionPerformed
-       
+       dashboardPanel.setVisible(false);
+        homePanel.setVisible(false);
+        transactionsPanel.setVisible(false);
+        savingGoalsPanel.setVisible(false);
+        statisticsPanel.setVisible(true);
+        savingGoalsButton.setEnabled(true);
+        homeButton.setEnabled(true);
+        dasboardButton.setEnabled(true);
+        transactionsButton.setEnabled(true);
+        statisticsButton.setEnabled(false);
     }//GEN-LAST:event_statisticsButtonActionPerformed
 
     /**
@@ -294,10 +364,12 @@ try {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton savingGoalsButton;
     private javax.swing.JPanel savingGoalsPanel;
     private javax.swing.JButton statisticsButton;
-    private javax.swing.JPanel transactions;
+    private javax.swing.JPanel statisticsPanel;
     private javax.swing.JButton transactionsButton;
+    private javax.swing.JPanel transactionsPanel;
     // End of variables declaration//GEN-END:variables
 }
