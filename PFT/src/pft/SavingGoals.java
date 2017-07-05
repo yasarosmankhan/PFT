@@ -45,6 +45,7 @@ public class SavingGoals extends javax.swing.JFrame {
         });
 
         savingGoalsButton.setText("Saving Goals");
+        savingGoalsButton.setEnabled(false);
         savingGoalsButton.setPreferredSize(new java.awt.Dimension(150, 50));
         savingGoalsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

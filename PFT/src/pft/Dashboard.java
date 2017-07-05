@@ -69,6 +69,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         dasboardButton.setText("Dashboard");
+        dasboardButton.setEnabled(false);
         dasboardButton.setPreferredSize(new java.awt.Dimension(150, 50));
         dasboardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

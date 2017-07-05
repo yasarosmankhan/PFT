@@ -61,6 +61,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         homeButton.setText("Home");
+        homeButton.setEnabled(false);
         homeButton.setPreferredSize(new java.awt.Dimension(150, 50));
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

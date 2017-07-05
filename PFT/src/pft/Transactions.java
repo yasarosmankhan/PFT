@@ -53,6 +53,7 @@ public class Transactions extends javax.swing.JFrame {
         });
 
         transactionsButton.setText("Transactions");
+        transactionsButton.setEnabled(false);
         transactionsButton.setPreferredSize(new java.awt.Dimension(150, 50));
         transactionsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

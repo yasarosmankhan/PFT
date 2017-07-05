@@ -37,6 +37,7 @@ public class Statistics extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         statisticsButton.setText("Statistics");
+        statisticsButton.setEnabled(false);
         statisticsButton.setPreferredSize(new java.awt.Dimension(150, 50));
         statisticsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
