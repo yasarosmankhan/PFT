@@ -65,11 +65,18 @@ public class MainClass extends javax.swing.JFrame {
         monthlyBudgetField = new javax.swing.JTextField();
         rentField = new javax.swing.JTextField();
         flexiOtherLabel = new javax.swing.JLabel();
-        submitButton = new javax.swing.JButton();
+        transactionsSubmitButton = new javax.swing.JButton();
         savingGoalsPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        howMuchLabel = new javax.swing.JLabel();
+        slider1 = new javax.swing.JSlider();
+        enterManually1Label = new javax.swing.JLabel();
+        enterManually1Field = new javax.swing.JTextField();
+        howLongLabel = new javax.swing.JLabel();
+        enterManually2Label = new javax.swing.JLabel();
+        slider2 = new javax.swing.JSlider();
+        enterManually2Field = new javax.swing.JTextField();
+        savingGoalsSubmitButton = new javax.swing.JButton();
         statisticsPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -237,10 +244,10 @@ public class MainClass extends javax.swing.JFrame {
 
         flexiOtherLabel.setText("Other");
 
-        submitButton.setText("Submit");
-        submitButton.addActionListener(new java.awt.event.ActionListener() {
+        transactionsSubmitButton.setText("Submit");
+        transactionsSubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitButtonActionPerformed(evt);
+                transactionsSubmitButtonActionPerformed(evt);
             }
         });
 
@@ -298,7 +305,7 @@ public class MainClass extends javax.swing.JFrame {
                                         .addComponent(flexiOtherField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(miscellaneousField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(submitButton)
+                .addComponent(transactionsSubmitButton)
                 .addGap(19, 19, 19))
         );
         transactionsPanelLayout.setVerticalGroup(
@@ -347,7 +354,7 @@ public class MainClass extends javax.swing.JFrame {
                         .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, transactionsPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(submitButton)
+                        .addComponent(transactionsSubmitButton)
                         .addContainerGap())))
         );
 
@@ -355,40 +362,83 @@ public class MainClass extends javax.swing.JFrame {
 
         savingGoalsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
-        jLabel4.setText("savings");
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel4.setText("Saving Goals");
 
-        jLabel3.setText("jLabel3");
+        howMuchLabel.setText("How Much to Save?");
 
-        jButton1.setText("jButton1");
+        enterManually1Label.setText("Enter Manually");
+
+        howLongLabel.setText("How Long?");
+
+        enterManually2Label.setText("Enter Manually");
+
+        savingGoalsSubmitButton.setText("Submit");
+        savingGoalsSubmitButton.setLocation(new java.awt.Point(-32275, -32315));
 
         javax.swing.GroupLayout savingGoalsPanelLayout = new javax.swing.GroupLayout(savingGoalsPanel);
         savingGoalsPanel.setLayout(savingGoalsPanelLayout);
         savingGoalsPanelLayout.setHorizontalGroup(
             savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(savingGoalsPanelLayout.createSequentialGroup()
-                .addGap(254, 254, 254)
-                .addComponent(jLabel4)
-                .addContainerGap(298, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savingGoalsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savingGoalsPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(115, 115, 115))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savingGoalsPanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(101, 101, 101))))
+                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabel4))
+                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(howMuchLabel)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(enterManually1Label)
+                            .addComponent(enterManually1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(howLongLabel))))
+                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(slider2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(slider1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(enterManually2Label)
+                            .addComponent(enterManually2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(62, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savingGoalsPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(savingGoalsSubmitButton)
+                .addGap(16, 16, 16))
         );
         savingGoalsPanelLayout.setVerticalGroup(
             savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(savingGoalsPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel4)
-                .addGap(11, 11, 11)
-                .addComponent(jButton1)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel3)
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(howMuchLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(slider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(enterManually1Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(enterManually1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(howLongLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(slider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(enterManually2Label)
+                .addGap(18, 18, 18)
+                .addComponent(enterManually2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(savingGoalsSubmitButton)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         getContentPane().add(savingGoalsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, 500));
@@ -502,9 +552,9 @@ public class MainClass extends javax.swing.JFrame {
         statisticsButton.setEnabled(false);
     }//GEN-LAST:event_statisticsButtonActionPerformed
 
-    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+    private void transactionsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionsSubmitButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_submitButtonActionPerformed
+    }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -554,6 +604,10 @@ try {
     private javax.swing.JLabel contractsLabel;
     private javax.swing.JButton dasboardButton;
     private javax.swing.JPanel dashboardPanel;
+    private javax.swing.JTextField enterManually1Field;
+    private javax.swing.JLabel enterManually1Label;
+    private javax.swing.JTextField enterManually2Field;
+    private javax.swing.JLabel enterManually2Label;
     private javax.swing.JLabel fixedExpensesLabel;
     private javax.swing.JTextField flexiOtherField;
     private javax.swing.JLabel flexiOtherLabel;
@@ -562,12 +616,12 @@ try {
     private javax.swing.JLabel flexibleExpensesPanel;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel homePanel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel howLongLabel;
+    private javax.swing.JLabel howMuchLabel;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField1;
@@ -582,12 +636,15 @@ try {
     private javax.swing.JLabel rentLabel;
     private javax.swing.JButton savingGoalsButton;
     private javax.swing.JPanel savingGoalsPanel;
+    private javax.swing.JButton savingGoalsSubmitButton;
+    private javax.swing.JSlider slider1;
+    private javax.swing.JSlider slider2;
     private javax.swing.JButton statisticsButton;
     private javax.swing.JPanel statisticsPanel;
-    private javax.swing.JButton submitButton;
     private javax.swing.JButton transactionsButton;
     private javax.swing.JLabel transactionsLabel;
     private static javax.swing.JPanel transactionsPanel;
+    private javax.swing.JButton transactionsSubmitButton;
     private javax.swing.JTextField travelField;
     private javax.swing.JLabel travelLabel;
     // End of variables declaration//GEN-END:variables
