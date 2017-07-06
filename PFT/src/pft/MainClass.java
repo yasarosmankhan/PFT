@@ -5,6 +5,9 @@
  */
 package pft;
 
+import java.awt.Component;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import javax.swing.UIManager;
 
 /**
@@ -18,10 +21,17 @@ public class MainClass extends javax.swing.JFrame {
      */
     public MainClass() {
         initComponents();
-        savingGoalsPanel.setVisible(false);
-        transactionsPanel.setVisible(false);
-        dashboardPanel.setVisible(false);
-        statisticsPanel.setVisible(false);
+        
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        BackgroundPanel.add(buttonPanel,gbc);
+        gbc.gridwidth = 2;    
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        BackgroundPanel.add(homePanel,gbc);
+        BackgroundPanel.revalidate();
+        BackgroundPanel.repaint();
     }
 
     /**
@@ -84,9 +94,10 @@ public class MainClass extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        BackgroundPanel = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        buttonPanel.setMinimumSize(new java.awt.Dimension(170, 501));
+        buttonPanel.setPreferredSize(new java.awt.Dimension(170, 501));
 
         statisticsButton.setText("Statistics");
         statisticsButton.setPreferredSize(new java.awt.Dimension(150, 50));
@@ -164,7 +175,8 @@ public class MainClass extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(buttonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
+        homePanel.setMinimumSize(new java.awt.Dimension(609, 497));
+        homePanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
         jLabel2.setText("home");
 
@@ -175,17 +187,18 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addGap(209, 209, 209)
                 .addComponent(jLabel2)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addContainerGap(374, Short.MAX_VALUE))
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addContainerGap(472, Short.MAX_VALUE))
         );
 
-        getContentPane().add(homePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, 500));
+        dashboardPanel.setMinimumSize(new java.awt.Dimension(609, 497));
+        dashboardPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Welcome to the Dashboard!");
@@ -209,7 +222,6 @@ public class MainClass extends javax.swing.JFrame {
                 "Date", "Description", "Amount", "In/ Out"
             }
         ));
-        jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
@@ -250,8 +262,7 @@ public class MainClass extends javax.swing.JFrame {
 
         searchbox_text.getAccessibleContext().setAccessibleDescription("");
 
-        getContentPane().add(dashboardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, -1));
-
+        transactionsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
         transactionsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
         transactionsLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -391,8 +402,7 @@ public class MainClass extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        getContentPane().add(transactionsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 590, 500));
-
+        savingGoalsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
         savingGoalsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -407,7 +417,6 @@ public class MainClass extends javax.swing.JFrame {
         enterManually2Label.setText("Enter Manually");
 
         savingGoalsSubmitButton.setText("Submit");
-        savingGoalsSubmitButton.setLocation(new java.awt.Point(-32275, -32315));
 
         javax.swing.GroupLayout savingGoalsPanelLayout = new javax.swing.GroupLayout(savingGoalsPanel);
         savingGoalsPanel.setLayout(savingGoalsPanelLayout);
@@ -474,8 +483,7 @@ public class MainClass extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        getContentPane().add(savingGoalsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, 500));
-
+        statisticsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
         statisticsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
         jLabel5.setText("stats");
@@ -491,7 +499,7 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(statisticsPanelLayout.createSequentialGroup()
                 .addGap(238, 238, 238)
                 .addComponent(jLabel5)
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(347, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statisticsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -511,78 +519,81 @@ public class MainClass extends javax.swing.JFrame {
                     .addGroup(statisticsPanelLayout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(329, Short.MAX_VALUE))
+                .addContainerGap(337, Short.MAX_VALUE))
         );
 
-        getContentPane().add(statisticsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 610, 500));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(780, 570));
+        setMinimumSize(new java.awt.Dimension(780, 570));
+        setPreferredSize(new java.awt.Dimension(780, 570));
+
+        BackgroundPanel.setMaximumSize(new java.awt.Dimension(780, 570));
+        BackgroundPanel.setMinimumSize(new java.awt.Dimension(780, 570));
+        BackgroundPanel.setPreferredSize(new java.awt.Dimension(780, 570));
+        BackgroundPanel.setLayout(new java.awt.GridBagLayout());
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void dasboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dasboardButtonActionPerformed
-        
-        dashboardPanel.setVisible(true);
-        homePanel.setVisible(false);
-        transactionsPanel.setVisible(false);
-        savingGoalsPanel.setVisible(false);
-        statisticsPanel.setVisible(false);
-        savingGoalsButton.setEnabled(true);
-        homeButton.setEnabled(true);
-        dasboardButton.setEnabled(false);
-        transactionsButton.setEnabled(true);
-        statisticsButton.setEnabled(true);
+      Component c = BackgroundPanel.getComponent(1); 
+        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        GridBagConstraints gbc = layout.getConstraints(c);
+        BackgroundPanel.remove(c);
+            BackgroundPanel.add(dashboardPanel,gbc);
+        BackgroundPanel.revalidate();
+        BackgroundPanel.repaint();
     }//GEN-LAST:event_dasboardButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        dashboardPanel.setVisible(false);
-        homePanel.setVisible(true);
-        transactionsPanel.setVisible(false);
-        savingGoalsPanel.setVisible(false);
-        statisticsPanel.setVisible(false);
-        savingGoalsButton.setEnabled(true);
-        homeButton.setEnabled(false);
-        dasboardButton.setEnabled(true);
-        transactionsButton.setEnabled(true);
-        statisticsButton.setEnabled(true);
+        Component c = BackgroundPanel.getComponent(1); 
+        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        GridBagConstraints gbc = layout.getConstraints(c);
+        BackgroundPanel.remove(c);
+            BackgroundPanel.add(homePanel,gbc);
+        BackgroundPanel.revalidate();
+        BackgroundPanel.repaint();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void transactionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionsButtonActionPerformed
-            dashboardPanel.setVisible(false);
-        homePanel.setVisible(false);
-        transactionsPanel.setVisible(true);
-        savingGoalsPanel.setVisible(false);
-        statisticsPanel.setVisible(false);
-        savingGoalsButton.setEnabled(true);
-        homeButton.setEnabled(true);
-        dasboardButton.setEnabled(true);
-        transactionsButton.setEnabled(false);
-        statisticsButton.setEnabled(true);
+        Component c = BackgroundPanel.getComponent(1); 
+        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        GridBagConstraints gbc = layout.getConstraints(c);
+        BackgroundPanel.remove(c);
+            BackgroundPanel.add(transactionsPanel,gbc);
+        BackgroundPanel.revalidate();
+        BackgroundPanel.repaint();
     }//GEN-LAST:event_transactionsButtonActionPerformed
 
     private void savingGoalsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsButtonActionPerformed
-       dashboardPanel.setVisible(false);
-        homePanel.setVisible(false);
-        transactionsPanel.setVisible(false);
-        savingGoalsPanel.setVisible(true);
-        statisticsPanel.setVisible(false);
-        savingGoalsButton.setEnabled(false);
-        homeButton.setEnabled(true);
-        dasboardButton.setEnabled(true);
-        transactionsButton.setEnabled(true);
-        statisticsButton.setEnabled(true);
+       Component c = BackgroundPanel.getComponent(1); 
+        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        GridBagConstraints gbc = layout.getConstraints(c);
+        BackgroundPanel.remove(c);
+            BackgroundPanel.add(savingGoalsPanel,gbc);
+        BackgroundPanel.revalidate();
+        BackgroundPanel.repaint();
     }//GEN-LAST:event_savingGoalsButtonActionPerformed
 
     private void statisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsButtonActionPerformed
-       dashboardPanel.setVisible(false);
-        homePanel.setVisible(false);
-        transactionsPanel.setVisible(false);
-        savingGoalsPanel.setVisible(false);
-        statisticsPanel.setVisible(true);
-        savingGoalsButton.setEnabled(true);
-        homeButton.setEnabled(true);
-        dasboardButton.setEnabled(true);
-        transactionsButton.setEnabled(true);
-        statisticsButton.setEnabled(false);
+       Component c = BackgroundPanel.getComponent(1); 
+        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        GridBagConstraints gbc = layout.getConstraints(c);
+        BackgroundPanel.remove(c);
+            BackgroundPanel.add(statisticsPanel,gbc);
+        BackgroundPanel.revalidate();
+        BackgroundPanel.repaint();
     }//GEN-LAST:event_statisticsButtonActionPerformed
 
     private void transactionsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionsSubmitButtonActionPerformed
@@ -632,11 +643,12 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel buttonPanel;
+    private javax.swing.JPanel BackgroundPanel;
+    private static javax.swing.JPanel buttonPanel;
     private javax.swing.JTextField contractsField;
     private javax.swing.JLabel contractsLabel;
     private javax.swing.JButton dasboardButton;
-    private javax.swing.JPanel dashboardPanel;
+    private static javax.swing.JPanel dashboardPanel;
     private javax.swing.JTextField enterManually1Field;
     private javax.swing.JLabel enterManually1Label;
     private javax.swing.JTextField enterManually2Field;
@@ -649,7 +661,7 @@ try {
     private javax.swing.JLabel flexibleExpensesPanel;
     private javax.swing.JLabel from_label;
     private javax.swing.JButton homeButton;
-    private javax.swing.JPanel homePanel;
+    private static javax.swing.JPanel homePanel;
     private javax.swing.JLabel howLongLabel;
     private javax.swing.JLabel howMuchLabel;
     private javax.swing.JButton jButton2;
@@ -669,13 +681,13 @@ try {
     private javax.swing.JTextField rentField;
     private javax.swing.JLabel rentLabel;
     private javax.swing.JButton savingGoalsButton;
-    private javax.swing.JPanel savingGoalsPanel;
+    private static javax.swing.JPanel savingGoalsPanel;
     private javax.swing.JButton savingGoalsSubmitButton;
     private javax.swing.JTextField searchbox_text;
     private javax.swing.JSlider slider1;
     private javax.swing.JSlider slider2;
     private javax.swing.JButton statisticsButton;
-    private javax.swing.JPanel statisticsPanel;
+    private static javax.swing.JPanel statisticsPanel;
     private javax.swing.JButton transactionsButton;
     private javax.swing.JLabel transactionsLabel;
     private static javax.swing.JPanel transactionsPanel;
