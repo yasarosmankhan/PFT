@@ -241,29 +241,227 @@
         </Constraint>
       </Constraints>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-        <Property name="useNullLayout" type="boolean" value="false"/>
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="rentField" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
+                              <Component id="transactionsLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
+                              <Component id="fixedExpensesLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                              <Component id="monthlyBudgetLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="monthlyBudgetField" min="-2" pref="160" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
+                              <Component id="travelField" min="-2" pref="160" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                              <Component id="flexibleExpensesPanel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="contractsLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rentLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="otherLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="travelLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="contractsField" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="otherField" min="-2" pref="160" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="miscellaneousLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="flexiOtherLabel" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="flexiTravelLabel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="flexiTravelField" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="flexiOtherField" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="miscellaneousField" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
+                  <Component id="submitButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="transactionsLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="monthlyBudgetLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="monthlyBudgetField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="fixedExpensesLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="rentField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rentLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="contractsField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="contractsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="otherLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="otherField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="travelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="travelField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="flexibleExpensesPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="flexiTravelLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="flexiTravelField" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="flexiOtherField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="flexiOtherLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="miscellaneousField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="miscellaneousLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
+                          <Component id="submitButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField2"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="350" y="170" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
+        <Component class="javax.swing.JTextField" name="flexiOtherField">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JLabel" name="transactionsLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton3"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Grande" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Transactions"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="210" y="100" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="monthlyBudgetLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Monthly Budget"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="fixedExpensesLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fixed Expenses"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="rentLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Rent"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="contractsLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contracts"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="otherLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Other"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="miscellaneousLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Miscellaneous"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="travelLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Travel"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="flexibleExpensesPanel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Flexible Expenses"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="flexiTravelLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Travel"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="miscellaneousField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="travelField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="otherField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="flexiTravelField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="contractsField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="monthlyBudgetField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="rentField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="flexiOtherLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Other"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="submitButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Submit"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
