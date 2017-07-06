@@ -43,8 +43,11 @@ public class MainClass extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         dashboardPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
+        from_label = new javax.swing.JLabel();
+        until_label = new javax.swing.JLabel();
+        searchbox_text = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         transactionsPanel = new javax.swing.JPanel();
         flexiOtherField = new javax.swing.JTextField();
         transactionsLabel = new javax.swing.JLabel();
@@ -184,38 +187,68 @@ public class MainClass extends javax.swing.JFrame {
 
         getContentPane().add(homePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, 500));
 
-        jLabel1.setText("dash");
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setText("Welcome to the Dashboard!");
 
-        jButton4.setText("jButton4");
+        from_label.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        from_label.setText("From");
 
-        jTextField3.setText("jTextField3");
+        until_label.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        until_label.setText("Until");
+
+        searchbox_text.setToolTipText("Search here...");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Date", "Description", "Amount", "In/ Out"
+            }
+        ));
+        jTable1.setShowGrid(true);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
         dashboardPanel.setLayout(dashboardPanelLayout);
         dashboardPanelLayout.setHorizontalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(jLabel1)
-                .addContainerGap(369, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(150, 150, 150))
+                    .addComponent(jLabel1)
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addComponent(from_label)
+                        .addGap(101, 101, 101)
+                        .addComponent(until_label)
+                        .addGap(53, 53, 53)))
+                .addGap(32, 32, 32)
+                .addComponent(searchbox_text, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         dashboardPanelLayout.setVerticalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
-                .addComponent(jButton4)
-                .addGap(58, 58, 58)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(from_label)
+                    .addComponent(until_label)
+                    .addComponent(searchbox_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
+
+        searchbox_text.getAccessibleContext().setAccessibleDescription("");
 
         getContentPane().add(dashboardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 600, -1));
 
@@ -614,18 +647,19 @@ try {
     private javax.swing.JTextField flexiTravelField;
     private javax.swing.JLabel flexiTravelLabel;
     private javax.swing.JLabel flexibleExpensesPanel;
+    private javax.swing.JLabel from_label;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel homePanel;
     private javax.swing.JLabel howLongLabel;
     private javax.swing.JLabel howMuchLabel;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField miscellaneousField;
     private javax.swing.JLabel miscellaneousLabel;
     private javax.swing.JTextField monthlyBudgetField;
@@ -637,6 +671,7 @@ try {
     private javax.swing.JButton savingGoalsButton;
     private javax.swing.JPanel savingGoalsPanel;
     private javax.swing.JButton savingGoalsSubmitButton;
+    private javax.swing.JTextField searchbox_text;
     private javax.swing.JSlider slider1;
     private javax.swing.JSlider slider2;
     private javax.swing.JButton statisticsButton;
@@ -647,5 +682,6 @@ try {
     private javax.swing.JButton transactionsSubmitButton;
     private javax.swing.JTextField travelField;
     private javax.swing.JLabel travelLabel;
+    private javax.swing.JLabel until_label;
     // End of variables declaration//GEN-END:variables
 }
