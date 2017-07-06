@@ -41,6 +41,8 @@ public class MainClass extends javax.swing.JFrame {
         dashboardPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         transactionsPanel = new javax.swing.JPanel();
+        transactionLabel = new javax.swing.JLabel();
+        monthlyBudget = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         savingGoalsPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -172,23 +174,41 @@ public class MainClass extends javax.swing.JFrame {
 
         transactionsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
-        jLabel3.setText("transaction");
+        transactionLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        transactionLabel.setText("Transactions");
+
+        monthlyBudget.setText("Monthly Budget");
+
+        jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout transactionsPanelLayout = new javax.swing.GroupLayout(transactionsPanel);
         transactionsPanel.setLayout(transactionsPanelLayout);
         transactionsPanelLayout.setHorizontalGroup(
             transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(transactionsPanelLayout.createSequentialGroup()
-                .addGap(233, 233, 233)
-                .addComponent(jLabel3)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(transactionLabel))
+                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel3))
+                            .addComponent(monthlyBudget))))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
         transactionsPanelLayout.setVerticalGroup(
             transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(transactionsPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
+                .addComponent(transactionLabel)
+                .addGap(33, 33, 33)
+                .addComponent(monthlyBudget)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addContainerGap(400, Short.MAX_VALUE))
         );
 
         getContentPane().add(transactionsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 590, 500));
@@ -365,10 +385,12 @@ try {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel monthlyBudget;
     private javax.swing.JButton savingGoalsButton;
     private javax.swing.JPanel savingGoalsPanel;
     private javax.swing.JButton statisticsButton;
     private javax.swing.JPanel statisticsPanel;
+    private javax.swing.JLabel transactionLabel;
     private javax.swing.JButton transactionsButton;
     private javax.swing.JPanel transactionsPanel;
     // End of variables declaration//GEN-END:variables
