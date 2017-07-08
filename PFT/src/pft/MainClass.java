@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.UIManager;
+import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -89,7 +90,7 @@ public class MainClass extends javax.swing.JFrame {
         enterManually1Field = new javax.swing.JTextField();
         howLongLabel = new javax.swing.JLabel();
         enterManually2Label = new javax.swing.JLabel();
-        slider2 = new javax.swing.JSlider();
+        duration_slider = new javax.swing.JSlider();
         enterManually2Field = new javax.swing.JTextField();
         savingGoalsSubmitButton = new javax.swing.JButton();
         saving_label = new javax.swing.JLabel();
@@ -427,15 +428,42 @@ public class MainClass extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel4.setText("Saving Goals");
 
-        howMuchLabel.setText("How Much to Save?");
+        howMuchLabel.setText("How Much to Save? (£)");
+
+        saving_slider.setMajorTickSpacing(100);
+        saving_slider.setMaximum(1000);
+        saving_slider.setMinimum(100);
+        saving_slider.setMinorTickSpacing(50);
+        saving_slider.setPaintLabels(true);
+        saving_slider.setPaintTicks(true);
+        saving_slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                saving_sliderStateChanged(evt);
+            }
+        });
 
         enterManually1Label.setText("Enter Manually");
 
-        howLongLabel.setText("How Long?");
+        howLongLabel.setText("How Long? (Months)");
 
         enterManually2Label.setText("Enter Manually");
 
+        duration_slider.setMajorTickSpacing(1);
+        duration_slider.setMaximum(12);
+        duration_slider.setPaintLabels(true);
+        duration_slider.setPaintTicks(true);
+        duration_slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                duration_sliderStateChanged(evt);
+            }
+        });
+
         savingGoalsSubmitButton.setText("Submit");
+        savingGoalsSubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savingGoalsSubmitButtonActionPerformed(evt);
+            }
+        });
 
         saving_label.setText("0");
 
@@ -448,10 +476,15 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(savingGoalsPanelLayout.createSequentialGroup()
                 .addGap(257, 257, 257)
                 .addComponent(jLabel4)
-                .addGap(0, 260, Short.MAX_VALUE))
+                .addGap(0, 278, Short.MAX_VALUE))
             .addGroup(savingGoalsPanelLayout.createSequentialGroup()
-                .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, savingGoalsPanelLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(howMuchLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saving_label, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, savingGoalsPanelLayout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(enterManually1Label)
@@ -461,28 +494,21 @@ public class MainClass extends javax.swing.JFrame {
                                 .addComponent(howLongLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(duration_label)
-                                .addGap(28, 28, 28))))
-                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                                .addGap(22, 22, 22))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, savingGoalsPanelLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(slider2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(duration_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(saving_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, savingGoalsPanelLayout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(enterManually2Label)
-                            .addComponent(enterManually2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(62, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savingGoalsPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(savingGoalsSubmitButton)
-                .addGap(16, 16, 16))
-            .addGroup(savingGoalsPanelLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(howMuchLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(saving_label, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                            .addGroup(savingGoalsPanelLayout.createSequentialGroup()
+                                .addComponent(enterManually2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(savingGoalsSubmitButton)))))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         savingGoalsPanelLayout.setVerticalGroup(
             savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -500,18 +526,18 @@ public class MainClass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(enterManually1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
-                .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(howLongLabel)
-                    .addComponent(duration_label))
+                .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(duration_label, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(howLongLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(slider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(duration_slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(enterManually2Label)
                 .addGap(18, 18, 18)
-                .addComponent(enterManually2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(savingGoalsSubmitButton)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addGroup(savingGoalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterManually2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(savingGoalsSubmitButton))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         statisticsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
@@ -629,6 +655,33 @@ public class MainClass extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
 
+    private void savingGoalsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsSubmitButtonActionPerformed
+        savings();
+        duration();
+    }//GEN-LAST:event_savingGoalsSubmitButtonActionPerformed
+
+    private void saving_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_saving_sliderStateChanged
+        saving_label.setText(Integer.toString(saving_slider.getValue()));
+    }//GEN-LAST:event_saving_sliderStateChanged
+
+    private void duration_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_duration_sliderStateChanged
+        duration_label.setText(Integer.toString(duration_slider.getValue()));
+    }//GEN-LAST:event_duration_sliderStateChanged
+
+    public void savings(){
+        String savingValue = enterManually1Field.getText(); //get the saving value from the textbox entry
+        int update_savings = Integer.parseInt(savingValue); //get the value from the text field
+        saving_slider.setValue(update_savings); //update the slider from the text field
+        saving_label.setText(savingValue);
+    }
+    
+    public void duration(){
+        String durationValue = enterManually2Field.getText(); //get the saving value from the textbox entry
+        int update_duration = Integer.parseInt(durationValue); //get the value from the text field
+        duration_slider.setValue(update_duration); //update the slider from the text field
+        duration_label.setText(durationValue);
+    }    
+    
     /**
      * @param args the command line arguments
      */
@@ -688,6 +741,7 @@ try {
     private javax.swing.JButton dasboardButton;
     private static javax.swing.JPanel dashboardPanel;
     private javax.swing.JLabel duration_label;
+    private javax.swing.JSlider duration_slider;
     private javax.swing.JTextField enterManually1Field;
     private javax.swing.JLabel enterManually1Label;
     private javax.swing.JTextField enterManually2Field;
@@ -725,7 +779,6 @@ try {
     private static javax.swing.JLabel saving_label;
     private static javax.swing.JSlider saving_slider;
     private javax.swing.JTextField searchbox_text;
-    private javax.swing.JSlider slider2;
     private javax.swing.JButton statisticsButton;
     private static javax.swing.JPanel statisticsPanel;
     private javax.swing.JLabel totalin_label;
@@ -739,3 +792,6 @@ try {
     private javax.swing.JLabel until_label;
     // End of variables declaration//GEN-END:variables
 }
+
+
+        
