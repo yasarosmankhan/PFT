@@ -8,6 +8,8 @@ package pft;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.event.ChangeEvent;
 
@@ -644,8 +646,14 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
 
     private void savingGoalsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsSubmitButtonActionPerformed
-        savings();
-        duration();
+        try {
+            savings();
+            duration();
+            String s1 = enterManually2Field.getText();
+            DB_Handler.getthestuff(s1);
+        } catch (Exception ex) {
+            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_savingGoalsSubmitButtonActionPerformed
 
     private void saving_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_saving_sliderStateChanged
