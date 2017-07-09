@@ -8,6 +8,8 @@ package pft;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -82,7 +84,15 @@ public class MainClass extends javax.swing.JFrame {
         flexiOtherLabel = new javax.swing.JLabel();
         transactionsSubmitButton = new javax.swing.JButton();
         statementButton = new javax.swing.JButton();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        calendarCustom = new com.toedter.calendar.JCalendar();
+        transactionsLabel1 = new javax.swing.JLabel();
+        transactionsLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        dateLabel = new javax.swing.JLabel();
+        otherLabel1 = new javax.swing.JLabel();
+        otherField1 = new javax.swing.JTextField();
         savingGoalsPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         howMuchLabel = new javax.swing.JLabel();
@@ -270,6 +280,12 @@ public class MainClass extends javax.swing.JFrame {
 
         flexiTravelLabel.setText("Travel");
 
+        flexiTravelField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flexiTravelFieldActionPerformed(evt);
+            }
+        });
+
         flexiOtherLabel.setText("Other");
 
         transactionsSubmitButton.setText("Submit");
@@ -284,119 +300,184 @@ public class MainClass extends javax.swing.JFrame {
         statementButton.setMinimumSize(new java.awt.Dimension(150, 50));
         statementButton.setPreferredSize(new java.awt.Dimension(150, 50));
 
+        calendarCustom.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                calendarCustomPropertyChange(evt);
+            }
+        });
+
+        transactionsLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        transactionsLabel1.setText("Out");
+
+        transactionsLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        transactionsLabel2.setText("In");
+
+        jLabel3.setText("Payday Date");
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Monthly Salary");
+
+        dateLabel.setText("Date");
+        dateLabel.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dateLabelPropertyChange(evt);
+            }
+        });
+
+        otherLabel1.setText("Other");
+
         javax.swing.GroupLayout transactionsPanelLayout = new javax.swing.GroupLayout(transactionsPanel);
         transactionsPanel.setLayout(transactionsPanelLayout);
         transactionsPanelLayout.setHorizontalGroup(
             transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(transactionsPanelLayout.createSequentialGroup()
-                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(rentField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, transactionsPanelLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                        .addGap(193, 193, 193)
                         .addComponent(transactionsLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, transactionsPanelLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(fixedExpensesLabel))
                     .addGroup(transactionsPanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(monthlyBudgetLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(monthlyBudgetField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, transactionsPanelLayout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(travelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(monthlyBudgetLabel)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(transactionsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(transactionsPanelLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(flexiTravelLabel)
-                            .addComponent(flexiOtherLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 8, Short.MAX_VALUE)
+                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                .addComponent(flexibleExpensesPanel)
+                                .addGap(211, 211, 211))
+                            .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(contractsLabel)
-                                    .addComponent(rentLabel)
-                                    .addComponent(otherLabel)
+                                    .addComponent(flexiOtherLabel)
                                     .addComponent(travelLabel))
-                                .addGap(72, 72, 72)
-                                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(contractsField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(otherField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                    .addComponent(contractsLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(contractsField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(transactionsPanelLayout.createSequentialGroup()
                                 .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(transactionsPanelLayout.createSequentialGroup()
-                                        .addGap(99, 99, 99)
-                                        .addComponent(flexibleExpensesPanel))
-                                    .addGroup(transactionsPanelLayout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, transactionsPanelLayout.createSequentialGroup()
+                                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(rentLabel)
+                                                    .addComponent(otherLabel)
+                                                    .addComponent(flexiTravelLabel))
+                                                .addGap(24, 24, 24))
+                                            .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                                .addComponent(miscellaneousLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                         .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(flexiOtherField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(otherField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(rentField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(flexiTravelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(miscellaneousField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(flexiTravelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, transactionsPanelLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(miscellaneousLabel)))
-                .addGap(18, 18, 18)
-                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(transactionsSubmitButton)
-                    .addComponent(statementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(83, 83, 83))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, transactionsPanelLayout.createSequentialGroup()
+                                        .addComponent(transactionsSubmitButton)
+                                        .addGap(35, 35, 35)))
+                                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(statementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(travelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(flexiOtherField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(otherField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(113, 113, 113))
+                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                        .addComponent(transactionsLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(transactionsLabel2)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(monthlyBudgetField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                        .addComponent(calendarCustom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                        .addComponent(fixedExpensesLabel)
+                                        .addGap(38, 38, 38))
+                                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(182, 182, 182)))
+                                .addComponent(otherLabel1)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         transactionsPanelLayout.setVerticalGroup(
             transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(transactionsPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(transactionsLabel)
-                .addGap(28, 28, 28)
+                .addGap(14, 14, 14)
                 .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monthlyBudgetLabel)
                     .addComponent(monthlyBudgetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(fixedExpensesLabel)
-                .addGap(25, 25, 25)
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(transactionsPanelLayout.createSequentialGroup()
+                                .addComponent(transactionsLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addGap(114, 114, 114))
+                            .addComponent(calendarCustom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(transactionsPanelLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(otherField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(otherLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fixedExpensesLabel)
+                    .addComponent(transactionsLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rentLabel))
-                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(transactionsPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(contractsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contractsLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(otherLabel)
-                            .addComponent(otherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(transactionsPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(statementButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
+                    .addComponent(rentLabel)
+                    .addComponent(contractsLabel)
+                    .addComponent(contractsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(travelLabel)
-                    .addComponent(travelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(otherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(otherLabel)
+                    .addComponent(travelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(travelLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(flexibleExpensesPanel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(flexiTravelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(flexiTravelLabel)
+                    .addComponent(flexiOtherLabel)
+                    .addComponent(flexiOtherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(transactionsPanelLayout.createSequentialGroup()
-                        .addComponent(flexibleExpensesPanel)
-                        .addGap(18, 18, 18)
-                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(flexiTravelLabel)
-                            .addComponent(flexiTravelField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(transactionsPanelLayout.createSequentialGroup()
-                                .addComponent(flexiOtherLabel)
-                                .addGap(6, 6, 6))
-                            .addComponent(flexiOtherField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(miscellaneousField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(miscellaneousLabel)))
-                    .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transactionsSubmitButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(miscellaneousField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(miscellaneousLabel))
+                .addGap(18, 18, 18)
+                .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(statementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(transactionsSubmitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         savingGoalsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
@@ -664,6 +745,28 @@ public class MainClass extends javax.swing.JFrame {
         duration_label.setText(Integer.toString(duration_slider.getValue()));
     }//GEN-LAST:event_duration_sliderStateChanged
 
+    private void flexiTravelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flexiTravelFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_flexiTravelFieldActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void calendarCustomPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calendarCustomPropertyChange
+        // TODO add your handling code here:
+       // Date x = calendarCustom.getDate();
+        Date x = calendarCustom.getDate();
+        String strDate = DateFormat.getDateInstance().format(x);
+        dateLabel.setText(strDate);
+    }//GEN-LAST:event_calendarCustomPropertyChange
+
+    private void dateLabelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateLabelPropertyChange
+        // TODO add your handling code here:
+      
+        
+    }//GEN-LAST:event_dateLabelPropertyChange
+
     public void savings(){
         String savingValue = enterManually1Field.getText(); //get the saving value from the textbox entry
         int update_savings = Integer.parseInt(savingValue); //get the value from the text field
@@ -732,10 +835,12 @@ try {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackgroundPanel;
     private static javax.swing.JPanel buttonPanel;
+    private com.toedter.calendar.JCalendar calendarCustom;
     private javax.swing.JTextField contractsField;
     private javax.swing.JLabel contractsLabel;
     private javax.swing.JButton dasboardButton;
     private static javax.swing.JPanel dashboardPanel;
+    private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel duration_label;
     private javax.swing.JSlider duration_slider;
     private javax.swing.JTextField enterManually1Field;
@@ -752,20 +857,24 @@ try {
     private javax.swing.JLabel howLongLabel;
     private javax.swing.JLabel howMuchLabel;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField miscellaneousField;
     private javax.swing.JLabel miscellaneousLabel;
     private javax.swing.JTextField monthlyBudgetField;
     private javax.swing.JLabel monthlyBudgetLabel;
     private javax.swing.JTextField otherField;
+    private javax.swing.JTextField otherField1;
     private javax.swing.JLabel otherLabel;
+    private javax.swing.JLabel otherLabel1;
     private javax.swing.JTextField rentField;
     private javax.swing.JLabel rentLabel;
     private javax.swing.JButton savingGoalsButton;
@@ -774,7 +883,6 @@ try {
     private static javax.swing.JLabel saving_label;
     private static javax.swing.JSlider saving_slider;
     private javax.swing.JTextField searchbox_text;
-    private javax.swing.JSlider slider2;
     private javax.swing.JButton statementButton;
     private javax.swing.JPanel statementPanel;
     private javax.swing.JButton statisticsButton;
@@ -783,6 +891,8 @@ try {
     private javax.swing.JLabel totalout_label;
     private javax.swing.JButton transactionsButton;
     private javax.swing.JLabel transactionsLabel;
+    private javax.swing.JLabel transactionsLabel1;
+    private javax.swing.JLabel transactionsLabel2;
     private static javax.swing.JPanel transactionsPanel;
     private javax.swing.JButton transactionsSubmitButton;
     private javax.swing.JTextField travelField;
