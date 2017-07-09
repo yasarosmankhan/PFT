@@ -286,6 +286,12 @@ public class MainClass extends javax.swing.JFrame {
             }
         });
 
+        monthlyBudgetField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                monthlyBudgetFieldKeyTyped(evt);
+            }
+        });
+
         flexiOtherLabel.setText("Other");
 
         transactionsSubmitButton.setText("Submit");
@@ -736,18 +742,36 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_statisticsButtonActionPerformed
 
     private void transactionsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionsSubmitButtonActionPerformed
-        // TODO add your handling code here:
-        //|| monthlySalary.equals("") || 
-     //           rentField.equals("") || contractsField.equals("")
-        try{
-            
+       try{
+            double monthlyBudgetDouble = Double.parseDouble(monthlyBudgetField.getText());
+            double monthlySalaryDouble = Double.parseDouble(monthlySalary.getText());
+            double otherFieldInDouble = Double.parseDouble(otherFieldIn.getText());
+            double rentFieldDouble = Double.parseDouble(rentField.getText());
+            double contractsFieldDouble = Double.parseDouble(contractsField.getText());
+            double travelFieldDouble = Double.parseDouble(travelField.getText());
+            double otherlFieldDouble = Double.parseDouble(otherlField.getText());
+            double flexiTravelFieldDouble = Double.parseDouble(flexiTravelField.getText());
+            double flexiOtherFieldDouble = Double.parseDouble(flexiOtherField.getText());
+            double miscellaneousFieldDouble = Double.parseDouble(miscellaneousField.getText());
+
        
-        if(monthlyBudgetField.equals("")   ){
-            JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty");
-             }
-        }catch(Exception e){
-          System.out.println(e);
+//        if(monthlyBudgetField.getText().equals("")  || monthlySalary.getText().equals("") || 
+//                rentField.getText().equals("") || contractsField.getText().equals("")  ){
+//            JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty");
+//             }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Submitted successfully");
+//        }
+                
+            
+            
+   
+
+        }catch(NumberFormatException nfe){
+          System.out.println(nfe);
+          JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty and are in numerical format!");
         }
+     
     }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
 
     private void savingGoalsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsSubmitButtonActionPerformed
@@ -801,6 +825,14 @@ public class MainClass extends javax.swing.JFrame {
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
     }//GEN-LAST:event_statementButtonActionPerformed
+
+    private void monthlyBudgetFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monthlyBudgetFieldKeyTyped
+//        char c = evt.getKeyChar();
+//        if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE)|| (c==KeyEvent.VK_DELETE))){
+//            evt.consume();
+//            getToolkit().beep();
+//        }
+    }//GEN-LAST:event_monthlyBudgetFieldKeyTyped
 
     public void savings(){
         String savingValue = enterManually1Field.getText(); //get the saving value from the textbox entry

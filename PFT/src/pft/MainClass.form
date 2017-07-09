@@ -540,6 +540,9 @@
         <Component class="javax.swing.JTextField" name="contractsField">
         </Component>
         <Component class="javax.swing.JTextField" name="monthlyBudgetField">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="monthlyBudgetFieldKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="rentField">
         </Component>
