@@ -21,8 +21,8 @@ public class DB_Handler {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
-                stat.executeUpdate("drop table if exists people;");
-                stat.executeUpdate("create table people (name, occupation);");
+//                stat.executeUpdate("drop table if exists people;");
+//                stat.executeUpdate("create table people (name, occupation);");
                 PreparedStatement prep = conn.prepareStatement("insert into people values (?, ?);");
 
                 prep.setString(1, s1);
@@ -54,54 +54,54 @@ public class DB_Handler {
 
     public static void transactionsEntry(double Budget, double Salary, double otherIn, double rent,
             double contracts, double travel, double otherOut, double flexiTravel, double flexiTravelOther,
-            double miscellaneous, Date date) throws Exception {
+            double miscellaneous, String date) throws Exception {
 
         try {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
-                stat.executeUpdate("drop table if exists Transactions;");
-                stat.executeUpdate("create table Transactions (Date, Expense, Amount);");
+//                stat.executeUpdate("drop table if exists Transactions;");
+//                stat.executeUpdate("create table Transactions (Date, Expense, Amount);");
                 PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?,?);");
 
                 
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "Budget");
                 prep.setDouble(3, Budget);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "Salary");
                 prep.setDouble(3, Salary);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "OtherIn");
                 prep.setDouble(3, otherIn);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "Rent");
                 prep.setDouble(3, rent);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "Contracts");
                 prep.setDouble(3, contracts);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "Travel");
                 prep.setDouble(3, travel);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "OtherOut");
                 prep.setDouble(3, otherOut);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "FlexiTravel");
                 prep.setDouble(3, flexiTravel);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "FlexiTravelOther");
                 prep.setDouble(3, flexiTravelOther);
                 prep.addBatch();
-                prep.setDate(1, date);
+                prep.setString(1, date);
                 prep.setString(2, "Miscellaneous");
                 prep.setDouble(3, miscellaneous);
                 prep.addBatch();

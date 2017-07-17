@@ -8,6 +8,8 @@ package pft;
 import java.awt.*;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -745,15 +747,25 @@ public class MainClass extends javax.swing.JFrame {
             double flexiTravelFieldDouble = Double.parseDouble(flexiTravelField.getText());
             double flexiOtherFieldDouble = Double.parseDouble(flexiOtherField.getText());
             double miscellaneousFieldDouble = Double.parseDouble(miscellaneousField.getText());
-            Date date = (Date) calendarCustom.getDate();
-            // String date = dateLabel.getText();
 
-            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+            String dateformat = "dd-MM-yyyy";
 
+            SimpleDateFormat sdf = new SimpleDateFormat(dateformat);
+
+            String moneydate = sdf.format(calendarCustom.getDate());
+
+//            DateFormat format = new SimpleDateFormat(dateformat, Locale.ENGLISH);
+//            try {
+//                newDate = format.parse(moneydate);
+//                System.out.println(newDate + "here");
+//            } catch (ParseException ex) {
+//                Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex); //important for sql
+//            }
+//            System.out.println(moneydate + "fhasfk");
             try {
                 DB_Handler.transactionsEntry(monthlyBudgetDouble, monthlySalaryDouble, otherFieldInDouble, rentFieldDouble, contractsFieldDouble,
                         travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble,
-                        miscellaneousFieldDouble, sqlDate);
+                        miscellaneousFieldDouble, moneydate);
             } catch (Exception ex) {
                 Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
             }
