@@ -10,10 +10,14 @@ package pft;
  * @author AlamMac
  */
 import java.sql.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DB_Handler {
+    
+    private static AtomicInteger ID_GENERATOR = new AtomicInteger(1);
+
 
     public static void getthestuff(String s1) throws Exception {
 
@@ -22,17 +26,23 @@ public class DB_Handler {
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
 //                stat.executeUpdate("drop table if exists people;");
-//                stat.executeUpdate("create table people (name, occupation);");
-                PreparedStatement prep = conn.prepareStatement("insert into people values (?, ?);");
+//                stat.executeUpdate("create table people (Customerid, name, occupation);");
+//                  if statement to update or insert if table already exists ***ADD HERE***
+                PreparedStatement prep = conn.prepareStatement("insert into people values (?, ?, ?);");
 
-                prep.setString(1, s1);
-                prep.setString(2, "politics");
+                int customerID = ID_GENERATOR.getAndIncrement();
+
+                prep.setInt(1, customerID);
+                prep.setString(2, s1);
+                prep.setString(3, "politics");
                 prep.addBatch();
-                prep.setString(1, "Yasar");
+                prep.setInt(1, customerID);
                 prep.setString(2, "CS");
+                prep.setString(3, "Yasar");
                 prep.addBatch();
-                prep.setString(1, "Fam");
+                prep.setInt(1, customerID++);
                 prep.setString(2, "smartypants");
+                prep.setString(3, "FAM");
                 prep.addBatch();
                 //System.out.println(s1);
                 conn.setAutoCommit(false);
