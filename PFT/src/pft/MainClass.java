@@ -5,15 +5,13 @@
  */
 package pft;
 
-import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.*;
+
 import java.text.DateFormat;
-import java.util.Date;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 /**
  *
@@ -747,21 +745,24 @@ public class MainClass extends javax.swing.JFrame {
             double flexiTravelFieldDouble = Double.parseDouble(flexiTravelField.getText());
             double flexiOtherFieldDouble = Double.parseDouble(flexiOtherField.getText());
             double miscellaneousFieldDouble = Double.parseDouble(miscellaneousField.getText());
-            
+            Date date = (Date) calendarCustom.getDate();
+            // String date = dateLabel.getText();
+
+            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
             try {
                 DB_Handler.transactionsEntry(monthlyBudgetDouble, monthlySalaryDouble, otherFieldInDouble, rentFieldDouble, contractsFieldDouble,
-                        travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble, miscellaneousFieldDouble);
+                        travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble,
+                        miscellaneousFieldDouble, sqlDate);
             } catch (Exception ex) {
                 Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-     
+
         } catch (NumberFormatException nfe) {
             System.out.println(nfe);
             JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty and are in numerical format!");
         }
-        
+
 
     }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
 
@@ -854,13 +855,7 @@ public class MainClass extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>

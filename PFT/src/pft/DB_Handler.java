@@ -53,46 +53,57 @@ public class DB_Handler {
     }
 
     public static void transactionsEntry(double Budget, double Salary, double otherIn, double rent,
-            double contracts, double travel, double otherOut, double flexiTravel,double flexiTravelOther, 
-            double miscellaneous) throws Exception {
+            double contracts, double travel, double otherOut, double flexiTravel, double flexiTravelOther,
+            double miscellaneous, Date date) throws Exception {
 
         try {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
                 stat.executeUpdate("drop table if exists Transactions;");
-                stat.executeUpdate("create table Transactions (Expense, Amount);");
-                PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?);");
+                stat.executeUpdate("create table Transactions (Date, Expense, Amount);");
+                PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?,?);");
 
-                prep.setString(1, "Budget");
-                prep.setDouble(2, Budget);
+                
+                prep.setDate(1, date);
+                prep.setString(2, "Budget");
+                prep.setDouble(3, Budget);
                 prep.addBatch();
-                prep.setString(1, "Salary");
-                prep.setDouble(2, Salary);
+                prep.setDate(1, date);
+                prep.setString(2, "Salary");
+                prep.setDouble(3, Salary);
                 prep.addBatch();
-                prep.setString(1, "OtherIn");
-                prep.setDouble(2, otherIn);
+                prep.setDate(1, date);
+                prep.setString(2, "OtherIn");
+                prep.setDouble(3, otherIn);
                 prep.addBatch();
-                prep.setString(1, "Rent");
-                prep.setDouble(2, rent);
+                prep.setDate(1, date);
+                prep.setString(2, "Rent");
+                prep.setDouble(3, rent);
                 prep.addBatch();
-                prep.setString(1, "Contracts");
-                prep.setDouble(2, contracts);
+                prep.setDate(1, date);
+                prep.setString(2, "Contracts");
+                prep.setDouble(3, contracts);
                 prep.addBatch();
-                prep.setString(1, "Travel");
-                prep.setDouble(2, travel);
+                prep.setDate(1, date);
+                prep.setString(2, "Travel");
+                prep.setDouble(3, travel);
                 prep.addBatch();
-                prep.setString(1, "OtherOut");
-                prep.setDouble(2, otherOut);
+                prep.setDate(1, date);
+                prep.setString(2, "OtherOut");
+                prep.setDouble(3, otherOut);
                 prep.addBatch();
-                prep.setString(1, "FlexiTravel");
-                prep.setDouble(2, flexiTravel);
+                prep.setDate(1, date);
+                prep.setString(2, "FlexiTravel");
+                prep.setDouble(3, flexiTravel);
                 prep.addBatch();
-                prep.setString(1, "FlexiTravelOther");
-                prep.setDouble(2, flexiTravelOther);
+                prep.setDate(1, date);
+                prep.setString(2, "FlexiTravelOther");
+                prep.setDouble(3, flexiTravelOther);
                 prep.addBatch();
-                prep.setString(1, "Miscellaneous");
-                prep.setDouble(2, miscellaneous);
+                prep.setDate(1, date);
+                prep.setString(2, "Miscellaneous");
+                prep.setDouble(3, miscellaneous);
                 prep.addBatch();
                 //System.out.println(s1);
                 conn.setAutoCommit(false);
@@ -103,6 +114,8 @@ public class DB_Handler {
                     while (rs.next()) {
                         System.out.println("Expense = " + rs.getString("Expense"));
                         System.out.println("Amount = " + rs.getString("Amount"));
+                        System.out.println("Date = " + rs.getString("Date"));
+                        System.out.println("________________________________________");
                     }
                 }
             }
