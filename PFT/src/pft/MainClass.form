@@ -307,11 +307,8 @@
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Component id="flexiTravelLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="otherLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="rentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="rentLabel" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -335,21 +332,13 @@
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="rentField" min="-2" pref="160" max="-2" attributes="0"/>
-                                                          <Component id="miscellaneousField" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                                          <Component id="monthlySalary" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                                          <Component id="travelField" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="flexiTravelField" min="-2" pref="160" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="rentField" min="-2" pref="160" max="-2" attributes="0"/>
+                                                  <Component id="miscellaneousField" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                                  <Component id="monthlySalary" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                                  <Component id="travelField" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                                  <Component id="flexiTravelField" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                                               <Component id="flexiOtherField" min="-2" pref="160" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -491,6 +480,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="fixedExpensesLabel">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fixed Expenses"/>
           </Properties>
         </Component>
@@ -518,6 +510,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="flexibleExpensesPanel">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Flexible Expenses"/>
           </Properties>
         </Component>

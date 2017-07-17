@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -27,15 +26,15 @@ public class MainClass extends javax.swing.JFrame {
      */
     public MainClass() {
         initComponents();
-        
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
-        BackgroundPanel.add(buttonPanel,gbc);
-        gbc.gridwidth = 2;    
+        BackgroundPanel.add(buttonPanel, gbc);
+        gbc.gridwidth = 2;
         gbc.gridx = 1;
         gbc.gridy = 0;
-        BackgroundPanel.add(dashboardPanel,gbc);
+        BackgroundPanel.add(dashboardPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
     }
@@ -266,6 +265,7 @@ public class MainClass extends javax.swing.JFrame {
 
         monthlyBudgetLabel.setText("Monthly Budget*");
 
+        fixedExpensesLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         fixedExpensesLabel.setText("Fixed Expenses");
 
         rentLabel.setText("Rent*");
@@ -276,6 +276,7 @@ public class MainClass extends javax.swing.JFrame {
 
         miscellaneousLabel.setText("Miscellaneous");
 
+        flexibleExpensesPanel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         flexibleExpensesPanel.setText("Flexible Expenses");
 
         flexiTravelLabel.setText("Travel");
@@ -375,10 +376,8 @@ public class MainClass extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, transactionsPanelLayout.createSequentialGroup()
                                             .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(flexiTravelLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(otherLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, transactionsPanelLayout.createSequentialGroup()
-                                            .addComponent(rentLabel)
+                                                .addComponent(otherLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(rentLabel, javax.swing.GroupLayout.Alignment.LEADING))
                                             .addGap(0, 0, Short.MAX_VALUE)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -396,17 +395,12 @@ public class MainClass extends javax.swing.JFrame {
                                                 .addComponent(contractsField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(transactionsPanelLayout.createSequentialGroup()
                                             .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(transactionsPanelLayout.createSequentialGroup()
-                                                    .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(rentField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(miscellaneousField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(monthlySalary, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(travelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGap(83, 83, 83))
-                                                .addGroup(transactionsPanelLayout.createSequentialGroup()
-                                                    .addComponent(flexiTravelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(18, 18, 18)))
-                                            .addGap(36, 36, 36)
+                                                .addComponent(rentField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(miscellaneousField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(monthlySalary, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(travelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(flexiTravelField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(119, 119, 119)
                                             .addComponent(flexiOtherField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(transactionsPanelLayout.createSequentialGroup()
                                 .addGap(203, 203, 203)
@@ -702,47 +696,47 @@ public class MainClass extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dasboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dasboardButtonActionPerformed
-      Component c = BackgroundPanel.getComponent(1); 
-        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        Component c = BackgroundPanel.getComponent(1);
+        GridBagLayout layout = (GridBagLayout) BackgroundPanel.getLayout();
         GridBagConstraints gbc = layout.getConstraints(c);
         BackgroundPanel.remove(c);
-            BackgroundPanel.add(dashboardPanel,gbc);
+        BackgroundPanel.add(dashboardPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
     }//GEN-LAST:event_dasboardButtonActionPerformed
 
     private void transactionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionsButtonActionPerformed
-        Component c = BackgroundPanel.getComponent(1); 
-        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        Component c = BackgroundPanel.getComponent(1);
+        GridBagLayout layout = (GridBagLayout) BackgroundPanel.getLayout();
         GridBagConstraints gbc = layout.getConstraints(c);
         BackgroundPanel.remove(c);
-            BackgroundPanel.add(transactionsPanel,gbc);
+        BackgroundPanel.add(transactionsPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
     }//GEN-LAST:event_transactionsButtonActionPerformed
 
     private void savingGoalsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsButtonActionPerformed
-       Component c = BackgroundPanel.getComponent(1); 
-        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        Component c = BackgroundPanel.getComponent(1);
+        GridBagLayout layout = (GridBagLayout) BackgroundPanel.getLayout();
         GridBagConstraints gbc = layout.getConstraints(c);
         BackgroundPanel.remove(c);
-            BackgroundPanel.add(savingGoalsPanel,gbc);
+        BackgroundPanel.add(savingGoalsPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
     }//GEN-LAST:event_savingGoalsButtonActionPerformed
 
     private void statisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsButtonActionPerformed
-       Component c = BackgroundPanel.getComponent(1); 
-        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        Component c = BackgroundPanel.getComponent(1);
+        GridBagLayout layout = (GridBagLayout) BackgroundPanel.getLayout();
         GridBagConstraints gbc = layout.getConstraints(c);
         BackgroundPanel.remove(c);
-            BackgroundPanel.add(statisticsPanel,gbc);
+        BackgroundPanel.add(statisticsPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
     }//GEN-LAST:event_statisticsButtonActionPerformed
 
     private void transactionsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionsSubmitButtonActionPerformed
-       try{
+        try {
             double monthlyBudgetDouble = Double.parseDouble(monthlyBudgetField.getText());
             double monthlySalaryDouble = Double.parseDouble(monthlySalary.getText());
             double otherFieldInDouble = Double.parseDouble(otherFieldIn.getText());
@@ -753,25 +747,22 @@ public class MainClass extends javax.swing.JFrame {
             double flexiTravelFieldDouble = Double.parseDouble(flexiTravelField.getText());
             double flexiOtherFieldDouble = Double.parseDouble(flexiOtherField.getText());
             double miscellaneousFieldDouble = Double.parseDouble(miscellaneousField.getText());
-
-       
-//        if(monthlyBudgetField.getText().equals("")  || monthlySalary.getText().equals("") || 
-//                rentField.getText().equals("") || contractsField.getText().equals("")  ){
-//            JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty");
-//             }
-//        else{
-//            JOptionPane.showMessageDialog(null, "Submitted successfully");
-//        }
-                
             
-            
-   
 
-        }catch(NumberFormatException nfe){
-          System.out.println(nfe);
-          JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty and are in numerical format!");
-        }
+            try {
+                DB_Handler.transactionsEntry(monthlyBudgetDouble, monthlySalaryDouble, otherFieldInDouble, rentFieldDouble, contractsFieldDouble,
+                        travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble, miscellaneousFieldDouble);
+            } catch (Exception ex) {
+                Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
      
+        } catch (NumberFormatException nfe) {
+            System.out.println(nfe);
+            JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty and are in numerical format!");
+        }
+        
+
     }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
 
     private void savingGoalsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsSubmitButtonActionPerformed
@@ -803,7 +794,7 @@ public class MainClass extends javax.swing.JFrame {
 
     private void calendarCustomPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calendarCustomPropertyChange
         // TODO add your handling code here:
-       // Date x = calendarCustom.getDate();
+        // Date x = calendarCustom.getDate();
         Date x = calendarCustom.getDate();
         String strDate = DateFormat.getDateInstance().format(x);
         dateLabel.setText(strDate);
@@ -811,17 +802,16 @@ public class MainClass extends javax.swing.JFrame {
 
     private void dateLabelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateLabelPropertyChange
         // TODO add your handling code here:
-      
-        
+
     }//GEN-LAST:event_dateLabelPropertyChange
 
     private void statementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementButtonActionPerformed
         // TODO add your handling code here:
-            Component c = BackgroundPanel.getComponent(1); 
-        GridBagLayout layout = (GridBagLayout)BackgroundPanel.getLayout();
+        Component c = BackgroundPanel.getComponent(1);
+        GridBagLayout layout = (GridBagLayout) BackgroundPanel.getLayout();
         GridBagConstraints gbc = layout.getConstraints(c);
         BackgroundPanel.remove(c);
-            BackgroundPanel.add(statementPanel,gbc);
+        BackgroundPanel.add(statementPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
     }//GEN-LAST:event_statementButtonActionPerformed
@@ -834,20 +824,20 @@ public class MainClass extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_monthlyBudgetFieldKeyTyped
 
-    public void savings(){
+    public void savings() {
         String savingValue = enterManually1Field.getText(); //get the saving value from the textbox entry
         int update_savings = Integer.parseInt(savingValue); //get the value from the text field
         saving_slider.setValue(update_savings); //update the slider from the text field
         saving_label.setText(savingValue);
     }
-    
-    public void duration(){
+
+    public void duration() {
         String durationValue = enterManually2Field.getText(); //get the saving value from the textbox entry
         int update_duration = Integer.parseInt(durationValue); //get the value from the text field
         duration_slider.setValue(update_duration); //update the slider from the text field
         duration_label.setText(durationValue);
-    }    
-    
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -875,10 +865,10 @@ public class MainClass extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-try {
+        try {
             //here you can put the selected theme class name in JTattoo
             UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
- 
+
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -886,17 +876,14 @@ try {
         java.awt.EventQueue.invokeLater(() -> {
             new MainClass().setVisible(true);
         });
-        
+
         //onchangelistner
-        
 //        int total_savings;
 //        total_savings = saving_slider.getValue();
 //        
 //        String savings_sliderchange = String.valueOf(total_savings);
 //
 //        saving_label.setText(savings_sliderchange);
-        
-  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -968,6 +955,3 @@ try {
     private javax.swing.JLabel until_label;
     // End of variables declaration//GEN-END:variables
 }
-
-
-        
