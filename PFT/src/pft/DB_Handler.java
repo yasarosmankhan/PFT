@@ -103,8 +103,20 @@ public class DB_Handler {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
-                stat.executeUpdate("drop table if exists Transactions;");
-                stat.executeUpdate("create table Transactions (TransactionID INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE, Expense, Amount);");
+//                stat.executeUpdate("drop table if exists Transactions;");
+//                stat.executeUpdate("create table Transactions (TransactionID INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE, Expense, Amount);");
+                               
+                DatabaseMetaData md = conn.getMetaData();
+                ResultSet rs1 = md.getTables(null, null, "Transactions", null);
+
+                if (rs1.next()) {
+                    // Table exists
+                    System.out.println("It's done nothing! :("); //**TEMP**
+                } else {
+                    // Table does not exist
+                    stat.executeUpdate("create table Transactions (TransactionID INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE, Expense, Amount);");
+                }
+                
                 PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?,?,?);");
 
                 java.sql.Date sqldate = new java.sql.Date(date.getTime());
@@ -167,4 +179,5 @@ public class DB_Handler {
         }
 
     }
+
 }
