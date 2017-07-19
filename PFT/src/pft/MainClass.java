@@ -782,7 +782,7 @@ public class MainClass extends javax.swing.JFrame {
             savings();
             duration();
             String s1 = enterManually2Field.getText();
-            DB_Handler.getthestuff(s1);
+            DB_Handler.executeSavingGoals(s1);
         } catch (Exception ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         }

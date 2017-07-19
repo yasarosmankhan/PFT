@@ -10,41 +10,37 @@ package pft;
  * @author AlamMac
  */
 import java.sql.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DB_Handler {
     
-    private static AtomicInteger ID_GENERATOR = new AtomicInteger(1);
 
-
-    public static void getthestuff(String s1) throws Exception {
+    public static void executeSavingGoals(String s1) throws Exception {
 
         try {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
 //                stat.executeUpdate("drop table if exists people;");
-//                stat.executeUpdate("create table people (Customerid, name, occupation);");
+                stat.executeUpdate("create table people (Customerid INTEGER PRIMARY KEY AUTOINCREMENT, name, occupation);");
 //                  if statement to update or insert if table already exists ***ADD HERE***
+//                stat.executeUpdate("ALTER TABLE people AUTO_INCREMENT = value;");
+
                 PreparedStatement prep = conn.prepareStatement("insert into people values (?, ?, ?);");
-
-                int customerID = ID_GENERATOR.getAndIncrement();
-
-                prep.setInt(1, customerID);
+        
                 prep.setString(2, s1);
                 prep.setString(3, "politics");
                 prep.addBatch();
-                prep.setInt(1, customerID);
+
                 prep.setString(2, "CS");
                 prep.setString(3, "Yasar");
                 prep.addBatch();
-                prep.setInt(1, customerID++);
+
                 prep.setString(2, "smartypants");
                 prep.setString(3, "FAM");
                 prep.addBatch();
-                //System.out.println(s1);
+
                 conn.setAutoCommit(false);
                 prep.executeBatch();
                 conn.setAutoCommit(true);
@@ -70,50 +66,49 @@ public class DB_Handler {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
-//                stat.executeUpdate("drop table if exists Transactions;");
-//                stat.executeUpdate("create table Transactions (Date, Expense, Amount);");
-                PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?,?);");
+                stat.executeUpdate("drop table if exists Transactions;");
+                stat.executeUpdate("create table Transactions (TransactionID INTEGER PRIMARY KEY AUTOINCREMENT, Date, Expense, Amount);");
+                PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?,?,?);");
 
-                
-                prep.setString(1, date);
-                prep.setString(2, "Budget");
-                prep.setDouble(3, Budget);
+                prep.setString(2, date);
+                prep.setString(3, "Budget");
+                prep.setDouble(4, Budget);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "Salary");
-                prep.setDouble(3, Salary);
+                prep.setString(2, date);
+                prep.setString(3, "Salary");
+                prep.setDouble(4, Salary);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "OtherIn");
-                prep.setDouble(3, otherIn);
+                prep.setString(2, date);
+                prep.setString(3, "OtherIn");
+                prep.setDouble(4, otherIn);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "Rent");
-                prep.setDouble(3, rent);
+                prep.setString(2, date);
+                prep.setString(3, "Rent");
+                prep.setDouble(4, rent);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "Contracts");
-                prep.setDouble(3, contracts);
+                prep.setString(2, date);
+                prep.setString(3, "Contracts");
+                prep.setDouble(4, contracts);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "Travel");
-                prep.setDouble(3, travel);
+                prep.setString(2, date);
+                prep.setString(3, "Travel");
+                prep.setDouble(4, travel);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "OtherOut");
-                prep.setDouble(3, otherOut);
+                prep.setString(2, date);
+                prep.setString(3, "OtherOut");
+                prep.setDouble(4, otherOut);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "FlexiTravel");
-                prep.setDouble(3, flexiTravel);
+                prep.setString(2, date);
+                prep.setString(3, "FlexiTravel");
+                prep.setDouble(4, flexiTravel);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "FlexiTravelOther");
-                prep.setDouble(3, flexiTravelOther);
+                prep.setString(2, date);
+                prep.setString(3, "FlexiTravelOther");
+                prep.setDouble(4, flexiTravelOther);
                 prep.addBatch();
-                prep.setString(1, date);
-                prep.setString(2, "Miscellaneous");
-                prep.setDouble(3, miscellaneous);
+                prep.setString(2, date);
+                prep.setString(3, "Miscellaneous");
+                prep.setDouble(4, miscellaneous);
                 prep.addBatch();
                 //System.out.println(s1);
                 conn.setAutoCommit(false);
