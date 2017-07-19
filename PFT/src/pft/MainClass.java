@@ -8,6 +8,7 @@ package pft;
 import java.awt.*;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
@@ -456,7 +457,7 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(otherFieldIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(otherLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(transactionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fixedExpensesLabel)
                     .addComponent(transactionsLabel1))
@@ -747,24 +748,25 @@ public class MainClass extends javax.swing.JFrame {
             double flexiOtherFieldDouble = Double.parseDouble(flexiOtherField.getText());
             double miscellaneousFieldDouble = Double.parseDouble(miscellaneousField.getText());
 
-            String dateformat = "dd-MM-yyyy";
+            String dateformat = "yyyy-MM-dd";
 
             SimpleDateFormat sdf = new SimpleDateFormat(dateformat);
 
-            String moneydate = sdf.format(calendarCustom.getDate());
+            String calendarDateSelect = sdf.format(calendarCustom.getDate());
 
-//            DateFormat format = new SimpleDateFormat(dateformat, Locale.ENGLISH);
-//            try {
-//                newDate = format.parse(moneydate);
-//                System.out.println(newDate + "here");
-//            } catch (ParseException ex) {
-//                Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex); //important for sql
-//            }
-//            System.out.println(moneydate + "fhasfk");
+            System.out.println(calendarDateSelect + "this is the date which is selected");
+
+            Date testDate = null;
+            try {
+                testDate = new SimpleDateFormat(dateformat).parse(calendarDateSelect);
+            } catch (ParseException ex) {
+                Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             try {
                 DB_Handler.transactionsEntry(monthlyBudgetDouble, monthlySalaryDouble, otherFieldInDouble, rentFieldDouble, contractsFieldDouble,
                         travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble,
-                        miscellaneousFieldDouble, moneydate);
+                        miscellaneousFieldDouble, testDate);
             } catch (Exception ex) {
                 Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -782,7 +784,7 @@ public class MainClass extends javax.swing.JFrame {
             savings();
             duration();
             String s1 = enterManually2Field.getText();
-            DB_Handler.executeSavingGoals(s1);
+            DB_Handler.savingGoalsEntry(s1);
         } catch (Exception ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -895,7 +897,7 @@ public class MainClass extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackgroundPanel;
     private static javax.swing.JPanel buttonPanel;
-    private com.toedter.calendar.JCalendar calendarCustom;
+    public static com.toedter.calendar.JCalendar calendarCustom;
     private javax.swing.JTextField contractsField;
     private javax.swing.JLabel contractsLabel;
     private javax.swing.JButton dasboardButton;

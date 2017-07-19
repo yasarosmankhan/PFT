@@ -418,7 +418,7 @@
                       <Component id="otherFieldIn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="otherLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="7" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="fixedExpensesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="transactionsLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -575,6 +575,9 @@
           <Events>
             <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="calendarCustomPropertyChange"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="transactionsLabel1">
           <Properties>
