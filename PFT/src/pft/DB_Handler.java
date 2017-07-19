@@ -10,7 +10,6 @@ package pft;
  * @author AlamMac
  */
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,8 +32,17 @@ public class DB_Handler {
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
 //                stat.executeUpdate("drop table if exists people;");
-                stat.executeUpdate("create table people (Customerid INTEGER PRIMARY KEY AUTOINCREMENT, name, occupation);"); //insert column names and column properties here
-//                  if statement to update or insert if table already exists ***ADD HERE***
+
+                DatabaseMetaData md = conn.getMetaData();
+                ResultSet rs1 = md.getTables(null, null, "people", null);
+
+                if (rs1.next()) {
+                    // Table exists
+                    System.out.println("It's done nothing! :("); //**TEMP**
+                } else {
+                    // Table does not exist
+                    stat.executeUpdate("create table people (Customerid INTEGER PRIMARY KEY AUTOINCREMENT, name, occupation);");
+                }
 
                 PreparedStatement prep = conn.prepareStatement("insert into people values (?, ?, ?);"); //condition for placeholder INSERTION statement
 
@@ -79,7 +87,7 @@ public class DB_Handler {
      * @param flexiTravel
      * @param flexiTravelOther
      * @param miscellaneous
-     * @param date
+     * @param date - julianday format
      * @throws Exception
      * @savingGoalsEntry - database connection SQLite, for DROP/CREATE/UPDATE
      * FUNCTIONALITY DROP - remove any existing local db CREATE - start the db
@@ -149,7 +157,7 @@ public class DB_Handler {
                     while (rs.next()) {
                         System.out.println("Expense = " + rs.getString("Expense"));
                         System.out.println("Amount = " + rs.getString("Amount"));
-                        System.out.println("Date = " + rs.getDate("Date"));
+                        System.out.println("Date = " + rs.getDate("Date")); // when you want to read the date use getDate method, SQLite standard stores date in julianday
                         System.out.println("________________________________________");
                     }
                 }

@@ -8,8 +8,6 @@ package pft;
 import java.awt.*;
 
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -748,25 +746,10 @@ public class MainClass extends javax.swing.JFrame {
             double flexiOtherFieldDouble = Double.parseDouble(flexiOtherField.getText());
             double miscellaneousFieldDouble = Double.parseDouble(miscellaneousField.getText());
 
-            String dateformat = "yyyy-MM-dd";
-
-            SimpleDateFormat sdf = new SimpleDateFormat(dateformat);
-
-            String calendarDateSelect = sdf.format(calendarCustom.getDate());
-
-            System.out.println(calendarDateSelect + "this is the date which is selected");
-
-            Date testDate = null;
-            try {
-                testDate = new SimpleDateFormat(dateformat).parse(calendarDateSelect);
-            } catch (ParseException ex) {
-                Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
             try {
                 DB_Handler.transactionsEntry(monthlyBudgetDouble, monthlySalaryDouble, otherFieldInDouble, rentFieldDouble, contractsFieldDouble,
                         travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble,
-                        miscellaneousFieldDouble, testDate);
+                        miscellaneousFieldDouble, calendarCustom.getDate());
             } catch (Exception ex) {
                 Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
             }
