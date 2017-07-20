@@ -188,13 +188,13 @@ public class DB_Handler {
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
                 DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
-                model.setRowCount(0);
+                model.setRowCount(0); //clear the table
 
                 try (ResultSet rs = stat.executeQuery("select * from Transactions order by Date desc;")) {
                     while (rs.next()) {
 
-                        model.insertRow(model.getRowCount(), new Object[]{rs.getDate("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"});
-                        MainClass.statementTable.getRowSorter().toggleSortOrder(0);
+                        model.insertRow(model.getRowCount(), new Object[]{rs.getDate("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"}); //Insert new rows
+                        MainClass.statementTable.getRowSorter().toggleSortOrder(0); //Sort the columns by default
 
                     }
                 }
