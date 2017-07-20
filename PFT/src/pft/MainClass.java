@@ -40,8 +40,6 @@ public class MainClass extends javax.swing.JFrame {
             System.out.println(e);
         }
 
-//        DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
-//        model.insertRow(model.getRowCount(), new Object[]{"dc", "smd", "lma", "smf"});
     }
 
     /**
@@ -118,6 +116,7 @@ public class MainClass extends javax.swing.JFrame {
         totalout_label1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         statementTable = new javax.swing.JTable();
+        refreshButton = new javax.swing.JButton();
         BackgroundPanel = new javax.swing.JPanel();
 
         buttonPanel.setMinimumSize(new java.awt.Dimension(170, 501));
@@ -634,6 +633,13 @@ public class MainClass extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(statementTable);
 
+        refreshButton.setText("Refresh");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout statementPanelLayout = new javax.swing.GroupLayout(statementPanel);
         statementPanel.setLayout(statementPanelLayout);
         statementPanelLayout.setHorizontalGroup(
@@ -642,8 +648,10 @@ public class MainClass extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(statementPanelLayout.createSequentialGroup()
-                        .addComponent(from_label1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(from_label1)
+                            .addComponent(refreshButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(statementPanelLayout.createSequentialGroup()
                                 .addComponent(until_label1)
@@ -657,7 +665,7 @@ public class MainClass extends javax.swing.JFrame {
                                 .addGap(145, 145, 145))))
                     .addGroup(statementPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 21, Short.MAX_VALUE))))
             .addGroup(statementPanelLayout.createSequentialGroup()
                 .addGap(265, 265, 265)
                 .addComponent(jLabel2)
@@ -676,7 +684,9 @@ public class MainClass extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(totalin_label1)
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalin_label1)
+                    .addComponent(refreshButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(totalout_label1)
                 .addGap(28, 28, 28))
@@ -836,6 +846,12 @@ public class MainClass extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_monthlyBudgetFieldKeyTyped
 
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+       try{ DB_Handler.transactionRefresh();}catch(Exception e){
+           System.out.println(e);
+       }
+    }//GEN-LAST:event_refreshButtonActionPerformed
+
     public void savings() {
         String savingValue = enterManually1Field.getText(); //get the saving value from the textbox entry
         int update_savings = Integer.parseInt(savingValue); //get the value from the text field
@@ -883,13 +899,7 @@ public class MainClass extends javax.swing.JFrame {
             new MainClass().setVisible(true);
         });
 
-        //onchangelistner
-//        int total_savings;
-//        total_savings = saving_slider.getValue();
-//        
-//        String savings_sliderchange = String.valueOf(total_savings);
-//
-//        saving_label.setText(savings_sliderchange);
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -935,6 +945,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel otherLabel;
     private javax.swing.JLabel otherLabel1;
     private javax.swing.JTextField otherlField;
+    private javax.swing.JButton refreshButton;
     private javax.swing.JTextField rentField;
     private javax.swing.JLabel rentLabel;
     private javax.swing.JButton savingGoalsButton;
