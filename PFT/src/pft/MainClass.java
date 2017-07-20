@@ -615,6 +615,7 @@ public class MainClass extends javax.swing.JFrame {
 
         totalout_label1.setText("Total Out:");
 
+        statementTable.setAutoCreateRowSorter(true);
         statementTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -632,6 +633,12 @@ public class MainClass extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(statementTable);
+        if (statementTable.getColumnModel().getColumnCount() > 0) {
+            statementTable.getColumnModel().getColumn(0).setHeaderValue("Date");
+            statementTable.getColumnModel().getColumn(1).setHeaderValue("Description");
+            statementTable.getColumnModel().getColumn(2).setHeaderValue("Amount");
+            statementTable.getColumnModel().getColumn(3).setHeaderValue("In/ Out");
+        }
 
         refreshButton.setText("Refresh");
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
@@ -847,9 +854,11 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_monthlyBudgetFieldKeyTyped
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
-       try{ DB_Handler.transactionRefresh();}catch(Exception e){
-           System.out.println(e);
-       }
+        try {
+            DB_Handler.getTransactions();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     public void savings() {
@@ -899,7 +908,6 @@ public class MainClass extends javax.swing.JFrame {
             new MainClass().setVisible(true);
         });
 
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -945,7 +953,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel otherLabel;
     private javax.swing.JLabel otherLabel1;
     private javax.swing.JTextField otherlField;
-    private javax.swing.JButton refreshButton;
+    public static javax.swing.JButton refreshButton;
     private javax.swing.JTextField rentField;
     private javax.swing.JLabel rentLabel;
     private javax.swing.JButton savingGoalsButton;

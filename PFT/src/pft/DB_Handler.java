@@ -187,35 +187,20 @@ public class DB_Handler {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
+                DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
+                model.setRowCount(0);
 
                 try (ResultSet rs = stat.executeQuery("select * from Transactions order by Date desc;")) {
                     while (rs.next()) {
-                        DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
-                         
+
                         model.insertRow(model.getRowCount(), new Object[]{rs.getDate("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"});
-                       
+                        MainClass.statementTable.getRowSorter().toggleSortOrder(0);
+
                     }
                 }
             }
         } catch (SQLException sql) {
             System.out.println("System cannot get data");
-        }
-
-    }
-
-    public static void transactionRefresh() throws Exception {
-
-        try {
-            Class.forName("org.sqlite.JDBC");
-            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-                Statement stat = conn.createStatement();
-                int x = 0;
-                try (ResultSet rs = stat.executeQuery("REFRESH TABLE Transactions;")) {
-                    
-                }
-            }
-        } catch (SQLException sql) {
-            System.out.println(sql);
         }
 
     }
