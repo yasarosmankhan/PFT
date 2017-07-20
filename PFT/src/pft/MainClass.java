@@ -35,6 +35,8 @@ public class MainClass extends javax.swing.JFrame {
         BackgroundPanel.add(dashboardPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
+        
+        
     }
 
     /**
@@ -52,14 +54,7 @@ public class MainClass extends javax.swing.JFrame {
         transactionsButton = new javax.swing.JButton();
         dasboardButton = new javax.swing.JButton();
         dashboardPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        from_label = new javax.swing.JLabel();
-        until_label = new javax.swing.JLabel();
-        searchbox_text = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        totalin_label = new javax.swing.JLabel();
-        totalout_label = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         transactionsPanel = new javax.swing.JPanel();
         flexiOtherField = new javax.swing.JTextField();
         transactionsLabel = new javax.swing.JLabel();
@@ -111,6 +106,13 @@ public class MainClass extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         statementPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        from_label1 = new javax.swing.JLabel();
+        until_label1 = new javax.swing.JLabel();
+        searchbox_text1 = new javax.swing.JTextField();
+        totalin_label1 = new javax.swing.JLabel();
+        totalout_label1 = new javax.swing.JLabel();
         BackgroundPanel = new javax.swing.JPanel();
 
         buttonPanel.setMinimumSize(new java.awt.Dimension(170, 501));
@@ -178,82 +180,25 @@ public class MainClass extends javax.swing.JFrame {
         dashboardPanel.setMinimumSize(new java.awt.Dimension(609, 497));
         dashboardPanel.setPreferredSize(new java.awt.Dimension(609, 497));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel1.setText("Welcome to the Dashboard!");
-
-        from_label.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        from_label.setText("From");
-
-        until_label.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        until_label.setText("Until");
-
-        searchbox_text.setToolTipText("Search here...");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Date", "Description", "Amount", "In/ Out"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        totalin_label.setText("Total In:");
-
-        totalout_label.setText("Total Out:");
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel7.setText("Welcome to your Dashboard");
 
         javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
         dashboardPanel.setLayout(dashboardPanelLayout);
         dashboardPanelLayout.setHorizontalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPanelLayout.createSequentialGroup()
-                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(dashboardPanelLayout.createSequentialGroup()
-                                .addComponent(from_label)
-                                .addGap(101, 101, 101)
-                                .addComponent(until_label)
-                                .addGap(53, 53, 53)))
-                        .addGap(32, 32, 32)
-                        .addComponent(searchbox_text, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPanelLayout.createSequentialGroup()
-                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(totalout_label)
-                            .addComponent(totalin_label))
-                        .addGap(151, 151, 151))))
+                .addGap(186, 186, 186)
+                .addComponent(jLabel7)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         dashboardPanelLayout.setVerticalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(from_label)
-                    .addComponent(until_label)
-                    .addComponent(searchbox_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(totalin_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(totalout_label)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(474, Short.MAX_VALUE))
         );
-
-        searchbox_text.getAccessibleContext().setAccessibleDescription("");
 
         transactionsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
         transactionsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
@@ -654,6 +599,28 @@ public class MainClass extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Your Statement");
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        from_label1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        from_label1.setText("From");
+
+        until_label1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        until_label1.setText("Until");
+
+        searchbox_text1.setToolTipText("Search here...");
+
+        totalin_label1.setText("Total In:");
+
+        totalout_label1.setText("Total Out:");
+
         javax.swing.GroupLayout statementPanelLayout = new javax.swing.GroupLayout(statementPanel);
         statementPanel.setLayout(statementPanelLayout);
         statementPanelLayout.setHorizontalGroup(
@@ -661,14 +628,48 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(statementPanelLayout.createSequentialGroup()
                 .addGap(265, 265, 265)
                 .addComponent(jLabel2)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
+                .addContainerGap(177, Short.MAX_VALUE)
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
+                        .addComponent(from_label1)
+                        .addGap(101, 101, 101)
+                        .addComponent(until_label1)
+                        .addGap(85, 85, 85)
+                        .addComponent(searchbox_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
+                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalout_label1)
+                            .addComponent(totalin_label1))
+                        .addGap(145, 145, 145))))
+            .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(statementPanelLayout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(26, Short.MAX_VALUE)))
         );
         statementPanelLayout.setVerticalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statementPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(474, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(from_label1)
+                    .addComponent(until_label1)
+                    .addComponent(searchbox_text1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE)
+                .addComponent(totalin_label1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(totalout_label1)
+                .addGap(28, 28, 28))
+            .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(statementPanelLayout.createSequentialGroup()
+                    .addGap(93, 93, 93)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(94, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -904,18 +905,18 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JTextField flexiTravelField;
     private javax.swing.JLabel flexiTravelLabel;
     private javax.swing.JLabel flexibleExpensesPanel;
-    private javax.swing.JLabel from_label;
+    private javax.swing.JLabel from_label1;
     private javax.swing.JLabel howLongLabel;
     private javax.swing.JLabel howMuchLabel;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField miscellaneousField;
     private javax.swing.JLabel miscellaneousLabel;
@@ -933,13 +934,13 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JButton savingGoalsSubmitButton;
     private static javax.swing.JLabel saving_label;
     private static javax.swing.JSlider saving_slider;
-    private javax.swing.JTextField searchbox_text;
+    private javax.swing.JTextField searchbox_text1;
     private javax.swing.JButton statementButton;
     private javax.swing.JPanel statementPanel;
     private javax.swing.JButton statisticsButton;
     private static javax.swing.JPanel statisticsPanel;
-    private javax.swing.JLabel totalin_label;
-    private javax.swing.JLabel totalout_label;
+    private javax.swing.JLabel totalin_label1;
+    private javax.swing.JLabel totalout_label1;
     private javax.swing.JButton transactionsButton;
     private javax.swing.JLabel transactionsLabel;
     private javax.swing.JLabel transactionsLabel1;
@@ -948,6 +949,6 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JButton transactionsSubmitButton;
     private javax.swing.JTextField travelField;
     private javax.swing.JLabel travelLabel;
-    private javax.swing.JLabel until_label;
+    private javax.swing.JLabel until_label1;
     // End of variables declaration//GEN-END:variables
 }
