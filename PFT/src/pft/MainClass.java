@@ -9,10 +9,8 @@ import java.awt.*;
 
 import java.text.DateFormat;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,12 +34,14 @@ public class MainClass extends javax.swing.JFrame {
         BackgroundPanel.add(dashboardPanel, gbc);
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
-        
-        String x = "";
-        DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
-//        ArrayList<String> list = new ArrayList();
-//        Object rowData = new Object[10];
-        model.insertRow(model.getRowCount(), new Object[]{"dc", "smd", "lma", "smf"});
+        try {
+            DB_Handler.getTransactions();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+//        DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
+//        model.insertRow(model.getRowCount(), new Object[]{"dc", "smd", "lma", "smf"});
     }
 
     /**
@@ -195,14 +195,14 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(dashboardPanelLayout.createSequentialGroup()
                 .addGap(186, 186, 186)
                 .addComponent(jLabel7)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         dashboardPanelLayout.setVerticalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(474, Short.MAX_VALUE))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
 
         transactionsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
@@ -756,14 +756,13 @@ public class MainClass extends javax.swing.JFrame {
             double flexiTravelFieldDouble = Double.parseDouble(flexiTravelField.getText());
             double flexiOtherFieldDouble = Double.parseDouble(flexiOtherField.getText());
             double miscellaneousFieldDouble = Double.parseDouble(miscellaneousField.getText());
-              
-            if(!monthlyBudgetField.getText().isEmpty() && !monthlySalary.getText().isEmpty() && !otherFieldIn.getText().isEmpty() && !rentField.getText().isEmpty()
-                    && !contractsField.getText().isEmpty() && !travelField.getText().isEmpty() && !otherlField.getText().isEmpty() &&
-                    !flexiTravelField.getText().isEmpty() && !flexiOtherField.getText().isEmpty() && !miscellaneousField.getText().isEmpty())
-            {
+
+            if (!monthlyBudgetField.getText().isEmpty() && !monthlySalary.getText().isEmpty() && !otherFieldIn.getText().isEmpty() && !rentField.getText().isEmpty()
+                    && !contractsField.getText().isEmpty() && !travelField.getText().isEmpty() && !otherlField.getText().isEmpty()
+                    && !flexiTravelField.getText().isEmpty() && !flexiOtherField.getText().isEmpty() && !miscellaneousField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Expenses have been submitted!");
             }
-            
+
             try {
                 DB_Handler.transactionsEntry(monthlyBudgetDouble, monthlySalaryDouble, otherFieldInDouble, rentFieldDouble, contractsFieldDouble,
                         travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble,
@@ -775,7 +774,7 @@ public class MainClass extends javax.swing.JFrame {
         } catch (NumberFormatException nfe) {
             System.out.println(nfe);
             JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty and are in numerical format!");
-        }      
+        }
     }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
 
     private void savingGoalsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsSubmitButtonActionPerformed
@@ -946,7 +945,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JTextField searchbox_text1;
     private javax.swing.JButton statementButton;
     private javax.swing.JPanel statementPanel;
-    private javax.swing.JTable statementTable;
+    public static javax.swing.JTable statementTable;
     private javax.swing.JButton statisticsButton;
     private static javax.swing.JPanel statisticsPanel;
     private javax.swing.JLabel totalin_label1;

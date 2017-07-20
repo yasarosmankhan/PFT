@@ -12,6 +12,7 @@ package pft;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class DB_Handler {
 
@@ -26,7 +27,7 @@ public class DB_Handler {
      * whether the record already exists
      */
     public static void savingGoalsEntry(String s1) throws Exception {
-
+        
         try {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
@@ -35,7 +36,7 @@ public class DB_Handler {
 
                 DatabaseMetaData md = conn.getMetaData();
                 ResultSet rs1 = md.getTables(null, null, "people", null);
-
+                
                 if (rs1.next()) {
                     // Table exists
                     System.out.println("It's done nothing! :("); //**TEMP**
@@ -43,7 +44,7 @@ public class DB_Handler {
                     // Table does not exist
                     stat.executeUpdate("create table people (Customerid INTEGER PRIMARY KEY AUTOINCREMENT, name, occupation);");
                 }
-
+                
                 PreparedStatement prep = conn.prepareStatement("insert into people values (?, ?, ?);"); //condition for placeholder INSERTION statement
 
                 prep.setString(2, s1);
@@ -53,15 +54,15 @@ public class DB_Handler {
                 prep.setString(2, "CS");
                 prep.setString(3, "Yasar");
                 prep.addBatch();
-
+                
                 prep.setString(2, "smartypants");
                 prep.setString(3, "FAM");
                 prep.addBatch();
-
+                
                 conn.setAutoCommit(false);
                 prep.executeBatch();
                 conn.setAutoCommit(true);
-
+                
                 try (ResultSet rs = stat.executeQuery("select * from people;")) { //bring all columns from the database table
                     while (rs.next()) {
                         System.out.println("name = " + rs.getString("name"));
@@ -72,7 +73,7 @@ public class DB_Handler {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DB_Handler.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
 
     /**
@@ -87,7 +88,7 @@ public class DB_Handler {
      * @param flexiTravel
      * @param flexiTravelOther
      * @param miscellaneous
-     * @param date - julianday format
+     * @param date - Julian-day format
      * @throws Exception
      * @savingGoalsEntry - database connection SQLite, for DROP/CREATE/UPDATE
      * FUNCTIONALITY DROP - remove any existing local db CREATE - start the db
@@ -98,17 +99,17 @@ public class DB_Handler {
     public static void transactionsEntry(double Budget, double Salary, double otherIn, double rent,
             double contracts, double travel, double otherOut, double flexiTravel, double flexiTravelOther,
             double miscellaneous, java.util.Date date) throws Exception {
-
+        
         try {
             Class.forName("org.sqlite.JDBC");
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 Statement stat = conn.createStatement();
 //                stat.executeUpdate("drop table if exists Transactions;");
 //                stat.executeUpdate("create table Transactions (TransactionID INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE, Expense, Amount);");
-                               
+                
                 DatabaseMetaData md = conn.getMetaData();
                 ResultSet rs1 = md.getTables(null, null, "Transactions", null);
-
+                
                 if (rs1.next()) {
                     // Table exists
                     System.out.println("It's done nothing! :("); //**TEMP**
@@ -118,9 +119,9 @@ public class DB_Handler {
                 }
                 
                 PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?,?,?);");
-
+                
                 java.sql.Date sqldate = new java.sql.Date(date.getTime());
-
+                
                 prep.setDate(2, sqldate);
                 prep.setString(3, "Budget");
                 prep.setDouble(4, Budget);
@@ -164,7 +165,7 @@ public class DB_Handler {
                 conn.setAutoCommit(false);
                 prep.executeBatch();
                 conn.setAutoCommit(true);
-
+                
                 try (ResultSet rs = stat.executeQuery("select * from Transactions;")) {
                     while (rs.next()) {
                         System.out.println("Expense = " + rs.getString("Expense"));
@@ -177,7 +178,30 @@ public class DB_Handler {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DB_Handler.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
+    
+    public static void getTransactions() throws Exception {
+        
+        try {
+            Class.forName("org.sqlite.JDBC");
+            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
+                Statement stat = conn.createStatement();
+//                stat.executeUpdate("drop table if exists people;");
 
+                try (ResultSet rs = stat.executeQuery("select * from Transactions;")) { //bring all columns from the database table
+                    while (rs.next()) {
+                        DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
+                        model.insertRow(model.getRowCount(), new Object[]{rs.getDate("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"});
+                        System.out.println("Date = " + rs.getDate("Date"));
+                        System.out.println("Des = " + rs.getString("Expense"));
+                    }
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DB_Handler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
 }
