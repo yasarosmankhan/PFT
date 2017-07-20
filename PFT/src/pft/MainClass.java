@@ -12,6 +12,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,7 +37,11 @@ public class MainClass extends javax.swing.JFrame {
         BackgroundPanel.revalidate();
         BackgroundPanel.repaint();
         
-        
+        String x = "";
+        DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
+//        ArrayList<String> list = new ArrayList();
+//        Object rowData = new Object[10];
+        model.insertRow(model.getRowCount(), new Object[]{"dc", "smd", "lma", "smf"});
     }
 
     /**
@@ -106,13 +111,13 @@ public class MainClass extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         statementPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         from_label1 = new javax.swing.JLabel();
         until_label1 = new javax.swing.JLabel();
         searchbox_text1 = new javax.swing.JTextField();
         totalin_label1 = new javax.swing.JLabel();
         totalout_label1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        statementTable = new javax.swing.JTable();
         BackgroundPanel = new javax.swing.JPanel();
 
         buttonPanel.setMinimumSize(new java.awt.Dimension(170, 501));
@@ -599,16 +604,6 @@ public class MainClass extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Your Statement");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
         from_label1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         from_label1.setText("From");
 
@@ -621,34 +616,52 @@ public class MainClass extends javax.swing.JFrame {
 
         totalout_label1.setText("Total Out:");
 
+        statementTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Description", "Amount", "In/ Out"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(statementTable);
+
         javax.swing.GroupLayout statementPanelLayout = new javax.swing.GroupLayout(statementPanel);
         statementPanel.setLayout(statementPanelLayout);
         statementPanelLayout.setHorizontalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(statementPanelLayout.createSequentialGroup()
+                        .addComponent(from_label1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(statementPanelLayout.createSequentialGroup()
+                                .addComponent(until_label1)
+                                .addGap(85, 85, 85)
+                                .addComponent(searchbox_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32))
+                            .addGroup(statementPanelLayout.createSequentialGroup()
+                                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(totalout_label1)
+                                    .addComponent(totalin_label1))
+                                .addGap(145, 145, 145))))
+                    .addGroup(statementPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(statementPanelLayout.createSequentialGroup()
                 .addGap(265, 265, 265)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
-                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
-                        .addComponent(from_label1)
-                        .addGap(101, 101, 101)
-                        .addComponent(until_label1)
-                        .addGap(85, 85, 85)
-                        .addComponent(searchbox_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
-                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(totalout_label1)
-                            .addComponent(totalin_label1))
-                        .addGap(145, 145, 145))))
-            .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(statementPanelLayout.createSequentialGroup()
-                    .addGap(26, 26, 26)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(26, Short.MAX_VALUE)))
         );
         statementPanelLayout.setVerticalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,16 +673,13 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(from_label1)
                     .addComponent(until_label1)
                     .addComponent(searchbox_text1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(totalin_label1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(totalout_label1)
                 .addGap(28, 28, 28))
-            .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(statementPanelLayout.createSequentialGroup()
-                    .addGap(93, 93, 93)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(94, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -915,8 +925,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField miscellaneousField;
     private javax.swing.JLabel miscellaneousLabel;
@@ -937,6 +946,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JTextField searchbox_text1;
     private javax.swing.JButton statementButton;
     private javax.swing.JPanel statementPanel;
+    private javax.swing.JTable statementTable;
     private javax.swing.JButton statisticsButton;
     private static javax.swing.JPanel statisticsPanel;
     private javax.swing.JLabel totalin_label1;
