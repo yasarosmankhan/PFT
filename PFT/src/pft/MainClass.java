@@ -109,14 +109,15 @@ public class MainClass extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         statementPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        from_label1 = new javax.swing.JLabel();
         until_label1 = new javax.swing.JLabel();
-        searchbox_text1 = new javax.swing.JTextField();
         totalin_label1 = new javax.swing.JLabel();
         totalout_label1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         statementTable = new javax.swing.JTable();
         refreshButton = new javax.swing.JButton();
+        DateCombofilter = new datechooser.beans.DateChooserCombo();
+        dateChooserDialog1 = new datechooser.beans.DateChooserDialog();
+        dateChooserDialog2 = new datechooser.beans.DateChooserDialog();
         BackgroundPanel = new javax.swing.JPanel();
 
         buttonPanel.setMinimumSize(new java.awt.Dimension(170, 501));
@@ -603,13 +604,8 @@ public class MainClass extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Your Statement");
 
-        from_label1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        from_label1.setText("From");
-
         until_label1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        until_label1.setText("Until");
-
-        searchbox_text1.setToolTipText("Search here...");
+        until_label1.setText("Select Date Filter:");
 
         totalin_label1.setText("Total In:");
 
@@ -655,24 +651,21 @@ public class MainClass extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(statementPanelLayout.createSequentialGroup()
-                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(from_label1)
-                            .addComponent(refreshButton))
+                        .addComponent(refreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(statementPanelLayout.createSequentialGroup()
-                                .addComponent(until_label1)
-                                .addGap(85, 85, 85)
-                                .addComponent(searchbox_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32))
-                            .addGroup(statementPanelLayout.createSequentialGroup()
-                                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(totalout_label1)
-                                    .addComponent(totalin_label1))
-                                .addGap(145, 145, 145))))
+                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalout_label1)
+                            .addComponent(totalin_label1))
+                        .addGap(124, 124, 124))
                     .addGroup(statementPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 21, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(until_label1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DateCombofilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 21, Short.MAX_VALUE))
             .addGroup(statementPanelLayout.createSequentialGroup()
                 .addGap(265, 265, 265)
                 .addComponent(jLabel2)
@@ -684,19 +677,21 @@ public class MainClass extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(from_label1)
-                    .addComponent(until_label1)
-                    .addComponent(searchbox_text1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalin_label1)
-                    .addComponent(refreshButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(totalout_label1)
-                .addGap(28, 28, 28))
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(statementPanelLayout.createSequentialGroup()
+                        .addComponent(until_label1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(totalin_label1)
+                            .addComponent(refreshButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(totalout_label1)
+                        .addGap(28, 28, 28))
+                    .addGroup(statementPanelLayout.createSequentialGroup()
+                        .addComponent(DateCombofilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -912,12 +907,15 @@ public class MainClass extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackgroundPanel;
+    public static datechooser.beans.DateChooserCombo DateCombofilter;
     private static javax.swing.JPanel buttonPanel;
     public static com.toedter.calendar.JCalendar calendarCustom;
     private javax.swing.JTextField contractsField;
     private javax.swing.JLabel contractsLabel;
     private javax.swing.JButton dasboardButton;
     private static javax.swing.JPanel dashboardPanel;
+    private datechooser.beans.DateChooserDialog dateChooserDialog1;
+    private datechooser.beans.DateChooserDialog dateChooserDialog2;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel duration_label;
     private javax.swing.JSlider duration_slider;
@@ -932,7 +930,6 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JTextField flexiTravelField;
     private javax.swing.JLabel flexiTravelLabel;
     private javax.swing.JLabel flexibleExpensesPanel;
-    private javax.swing.JLabel from_label1;
     private javax.swing.JLabel howLongLabel;
     private javax.swing.JLabel howMuchLabel;
     private javax.swing.JButton jButton2;
@@ -961,7 +958,6 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JButton savingGoalsSubmitButton;
     private static javax.swing.JLabel saving_label;
     private static javax.swing.JSlider saving_slider;
-    private javax.swing.JTextField searchbox_text1;
     private javax.swing.JButton statementButton;
     private javax.swing.JPanel statementPanel;
     public static javax.swing.JTable statementTable;

@@ -781,32 +781,26 @@
                   <EmptySpace pref="47" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="from_label1" min="-2" max="-2" attributes="0"/>
-                              <Component id="refreshButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="refreshButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="until_label1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="searchbox_text1" min="-2" pref="142" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="totalout_label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="totalin_label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="totalout_label1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="totalin_label1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="541" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="until_label1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="DateCombofilter" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
@@ -821,21 +815,25 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="from_label1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="until_label1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="searchbox_text1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="until_label1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="345" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="totalin_label1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="refreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Component id="totalout_label1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="DateCombofilter" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="345" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="totalin_label1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="refreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                  <Component id="totalout_label1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -849,25 +847,12 @@
             <Property name="text" type="java.lang.String" value="Your Statement"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="from_label1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="From"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="until_label1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Until"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="searchbox_text1">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Search here..."/>
+            <Property name="text" type="java.lang.String" value="Select Date Filter:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="totalin_label1">
@@ -943,8 +928,17 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
+        <Component class="datechooser.beans.DateChooserCombo" name="DateCombofilter">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
+    <Component class="datechooser.beans.DateChooserDialog" name="dateChooserDialog1">
+    </Component>
+    <Component class="datechooser.beans.DateChooserDialog" name="dateChooserDialog2">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>

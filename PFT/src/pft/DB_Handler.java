@@ -204,5 +204,33 @@ public class DB_Handler {
         }
 
     }
+    
+    public static void transactionFilter() throws Exception {
+
+//        try {
+//            Class.forName("org.sqlite.JDBC");
+//            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
+//                Statement stat = conn.createStatement();
+//                DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
+//                model.setRowCount(0); //clear the table
+                
+//                String dateSelected = MainClass.DateCombofilter.getSelectedDate().toString();
+
+//                try (ResultSet rs = stat.executeQuery("select * from Transactions WHERE Date =" + dateSelected)) {
+//                    while (rs.next()) {
+
+//                        model.insertRow(model.getRowCount(), new Object[]{rs.getDate("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"}); //Insert new rows
+//                        MainClass.statementTable.getRowSorter().toggleSortOrder(0); //Sort the columns by default
+//                            
+//                    }
+//                }
+//            }
+//        } catch (SQLException sql) {
+//            System.out.println("System cannot get data");
+//        }
+
+    }
+    
+    
 
 }
