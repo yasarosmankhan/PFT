@@ -58,6 +58,17 @@ public class MainClass extends javax.swing.JFrame {
         dasboardButton = new javax.swing.JButton();
         dashboardPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        lifeProgressBar = new javax.swing.JProgressBar();
+        inputProgress = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        totalBudget = new javax.swing.JLabel();
+        budgetLabel = new javax.swing.JLabel();
+        inLabel = new javax.swing.JLabel();
+        outLabel = new javax.swing.JLabel();
+        inTotal = new javax.swing.JLabel();
+        outTotal = new javax.swing.JLabel();
+        remainingBudgetLabel = new javax.swing.JLabel();
+        totalRemainingBudget = new javax.swing.JLabel();
         transactionsPanel = new javax.swing.JPanel();
         flexiOtherField = new javax.swing.JTextField();
         transactionsLabel = new javax.swing.JLabel();
@@ -188,25 +199,113 @@ public class MainClass extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel7.setText("Welcome to your Dashboard");
 
+        lifeProgressBar.setStringPainted(true);
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        totalBudget.setText("0");
+
+        budgetLabel.setText("Budget");
+
+        inLabel.setText("In");
+
+        outLabel.setText("Out");
+
+        inTotal.setText("0");
+
+        outTotal.setText("0");
+
+        remainingBudgetLabel.setText("Remaining Budget");
+
+        totalRemainingBudget.setText("0");
+
         javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
         dashboardPanel.setLayout(dashboardPanelLayout);
         dashboardPanelLayout.setHorizontalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(jLabel7)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(jLabel7))
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lifeProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                                        .addComponent(inputProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(208, 208, 208)
+                                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(outLabel)
+                                            .addComponent(inLabel))
+                                        .addGap(61, 61, 61)
+                                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(inTotal)
+                                            .addComponent(outTotal))))
+                                .addGap(0, 25, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPanelLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                                        .addComponent(remainingBudgetLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(totalRemainingBudget))
+                                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                                        .addComponent(budgetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(totalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(8, 8, 8)))))
+                .addGap(26, 26, 26))
         );
         dashboardPanelLayout.setVerticalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(467, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(lifeProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(inputProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1))
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(inLabel)
+                            .addComponent(inTotal))
+                        .addGap(18, 18, 18)
+                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(outLabel)
+                            .addComponent(outTotal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(budgetLabel)
+                            .addComponent(totalBudget))))
+                .addGap(26, 26, 26)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(remainingBudgetLabel)
+                    .addComponent(totalRemainingBudget))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
 
         transactionsPanel.setMinimumSize(new java.awt.Dimension(609, 497));
         transactionsPanel.setPreferredSize(new java.awt.Dimension(609, 497));
+
+        flexiOtherField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flexiOtherFieldActionPerformed(evt);
+            }
+        });
 
         transactionsLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         transactionsLabel.setText("Transactions");
@@ -787,7 +886,41 @@ public class MainClass extends javax.swing.JFrame {
             System.out.println(nfe);
             JOptionPane.showMessageDialog(null, "Make sure all the required fields are not empty and are in numerical format!");
         }
+                totals();
+
+
     }//GEN-LAST:event_transactionsSubmitButtonActionPerformed
+
+    public void totals() {
+
+        double totalIn = Double.parseDouble(monthlySalary.getText()) + Double.parseDouble(otherFieldIn.getText());
+        double totalOut = Double.parseDouble(rentField.getText())
+                + Double.parseDouble(contractsField.getText())
+                + Double.parseDouble(travelField.getText())
+                + Double.parseDouble(otherlField.getText())
+                + Double.parseDouble(flexiTravelField.getText())
+                + Double.parseDouble(flexiOtherField.getText())
+                + Double.parseDouble(miscellaneousField.getText());
+        double totalBudget1 = Double.parseDouble(monthlyBudgetField.getText());
+        
+        String totalInDouble = Double.toString(totalIn);
+        inTotal.setText(totalInDouble);
+        String totalOutDouble = Double.toString(totalOut);
+        outTotal.setText(totalOutDouble);
+        String totalBudgetDouble = Double.toString(totalBudget1);
+        totalBudget.setText(totalBudgetDouble);
+        
+        double totalRemainingBudget1 = totalBudget1 - totalOut;
+        String totalBudgetDouble2 = Double.toString(totalRemainingBudget1);
+        totalRemainingBudget.setText(totalBudgetDouble2);
+        
+       // double value = Double.parseDouble(inputProgress.getText());
+      
+        double remainingPercentage = totalRemainingBudget1/totalBudget1*100;
+          double rounded = Math.round(remainingPercentage);
+        lifeProgressBar.setValue((int) rounded);
+        
+    }
 
     private void savingGoalsSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savingGoalsSubmitButtonActionPerformed
         try {
@@ -856,6 +989,16 @@ public class MainClass extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_refreshButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void flexiOtherFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flexiOtherFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_flexiOtherFieldActionPerformed
+
     public void savings() {
         String savingValue = enterManually1Field.getText(); //get the saving value from the textbox entry
         int update_savings = Integer.parseInt(savingValue); //get the value from the text field
@@ -908,6 +1051,7 @@ public class MainClass extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackgroundPanel;
     public static datechooser.beans.DateChooserCombo DateCombofilter;
+    private javax.swing.JLabel budgetLabel;
     private static javax.swing.JPanel buttonPanel;
     public static com.toedter.calendar.JCalendar calendarCustom;
     private javax.swing.JTextField contractsField;
@@ -932,6 +1076,10 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel flexibleExpensesPanel;
     private javax.swing.JLabel howLongLabel;
     private javax.swing.JLabel howMuchLabel;
+    private javax.swing.JLabel inLabel;
+    private javax.swing.JLabel inTotal;
+    private javax.swing.JTextField inputProgress;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -941,6 +1089,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JProgressBar lifeProgressBar;
     private javax.swing.JTextField miscellaneousField;
     private javax.swing.JLabel miscellaneousLabel;
     private javax.swing.JTextField monthlyBudgetField;
@@ -950,7 +1099,10 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel otherLabel;
     private javax.swing.JLabel otherLabel1;
     private javax.swing.JTextField otherlField;
+    private javax.swing.JLabel outLabel;
+    private javax.swing.JLabel outTotal;
     public static javax.swing.JButton refreshButton;
+    private javax.swing.JLabel remainingBudgetLabel;
     private javax.swing.JTextField rentField;
     private javax.swing.JLabel rentLabel;
     private javax.swing.JButton savingGoalsButton;
@@ -963,6 +1115,8 @@ public class MainClass extends javax.swing.JFrame {
     public static javax.swing.JTable statementTable;
     private javax.swing.JButton statisticsButton;
     private static javax.swing.JPanel statisticsPanel;
+    private javax.swing.JLabel totalBudget;
+    private javax.swing.JLabel totalRemainingBudget;
     private javax.swing.JLabel totalin_label1;
     private javax.swing.JLabel totalout_label1;
     private javax.swing.JButton transactionsButton;
