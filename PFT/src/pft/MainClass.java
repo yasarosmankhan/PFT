@@ -59,8 +59,6 @@ public class MainClass extends javax.swing.JFrame {
         dashboardPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         lifeProgressBar = new javax.swing.JProgressBar();
-        inputProgress = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         totalBudget = new javax.swing.JLabel();
         budgetLabel = new javax.swing.JLabel();
         inLabel = new javax.swing.JLabel();
@@ -201,13 +199,6 @@ public class MainClass extends javax.swing.JFrame {
 
         lifeProgressBar.setStringPainted(true);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         totalBudget.setText("0");
 
         budgetLabel.setText("Budget");
@@ -240,8 +231,7 @@ public class MainClass extends javax.swing.JFrame {
                                 .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lifeProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(dashboardPanelLayout.createSequentialGroup()
-                                        .addComponent(inputProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(208, 208, 208)
+                                        .addGap(330, 330, 330)
                                         .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(outLabel)
                                             .addComponent(inLabel))
@@ -251,8 +241,7 @@ public class MainClass extends javax.swing.JFrame {
                                             .addComponent(outTotal))))
                                 .addGap(0, 25, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPanelLayout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(dashboardPanelLayout.createSequentialGroup()
                                         .addComponent(remainingBudgetLabel)
@@ -272,25 +261,18 @@ public class MainClass extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(26, 26, 26)
                 .addComponent(lifeProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(dashboardPanelLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(inputProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1))
-                    .addGroup(dashboardPanelLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(inLabel)
-                            .addComponent(inTotal))
-                        .addGap(18, 18, 18)
-                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(outLabel)
-                            .addComponent(outTotal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(budgetLabel)
-                            .addComponent(totalBudget))))
+                .addGap(41, 41, 41)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inLabel)
+                    .addComponent(inTotal))
+                .addGap(18, 18, 18)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(outLabel)
+                    .addComponent(outTotal))
+                .addGap(27, 27, 27)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(budgetLabel)
+                    .addComponent(totalBudget))
                 .addGap(26, 26, 26)
                 .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remainingBudgetLabel)
@@ -989,12 +971,6 @@ public class MainClass extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_refreshButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void flexiOtherFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flexiOtherFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_flexiOtherFieldActionPerformed
@@ -1078,8 +1054,6 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel howMuchLabel;
     private javax.swing.JLabel inLabel;
     private javax.swing.JLabel inTotal;
-    private javax.swing.JTextField inputProgress;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
