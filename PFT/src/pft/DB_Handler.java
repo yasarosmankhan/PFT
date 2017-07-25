@@ -12,9 +12,12 @@ package pft;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 import javax.swing.table.*;
 
 public class DB_Handler {
+
+    static int counter = 0;
 
     /**
      *
@@ -98,7 +101,7 @@ public class DB_Handler {
      */
     public static void transactionsEntry(double Budget, double Salary, double otherIn, double rent,
             double contracts, double travel, double otherOut, double flexiTravel, double flexiTravelOther,
-            double miscellaneous, java.util.Date date) throws Exception {
+            double miscellaneous, String date) throws Exception {
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -115,50 +118,48 @@ public class DB_Handler {
                     System.out.println("It's done nothing! :("); //**TEMP**
                 } else {
                     // Table does not exist
-                    stat.executeUpdate("create table Transactions (TransactionID INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE, Expense, Amount);");
+                    stat.executeUpdate("create table Transactions (TransactionID INTEGER PRIMARY KEY AUTOINCREMENT, Date, Expense, Amount);");
                 }
 
                 PreparedStatement prep = conn.prepareStatement("insert into Transactions values (?,?,?,?);");
 
-                java.sql.Date sqldate = new java.sql.Date(date.getTime());
-
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "Budget");
                 prep.setDouble(4, Budget);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "Salary");
                 prep.setDouble(4, Salary);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "OtherIn");
                 prep.setDouble(4, otherIn);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "Rent");
                 prep.setDouble(4, rent);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "Contracts");
                 prep.setDouble(4, contracts);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "Travel");
                 prep.setDouble(4, travel);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "OtherOut");
                 prep.setDouble(4, otherOut);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "FlexiTravel");
                 prep.setDouble(4, flexiTravel);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "FlexiTravelOther");
                 prep.setDouble(4, flexiTravelOther);
                 prep.addBatch();
-                prep.setDate(2, sqldate);
+                prep.setString(2, date);
                 prep.setString(3, "Miscellaneous");
                 prep.setDouble(4, miscellaneous);
                 prep.addBatch();
@@ -170,7 +171,7 @@ public class DB_Handler {
                     while (rs.next()) {
                         System.out.println("Expense = " + rs.getString("Expense"));
                         System.out.println("Amount = " + rs.getString("Amount"));
-                        System.out.println("Date = " + rs.getDate("Date")); // when you want to read the date use getDate method, SQLite standard stores date in julianday
+                        System.out.println("Date = " + rs.getString("Date")); // when you want to read the date use getDate method, SQLite standard stores date in julianday
                         System.out.println("________________________________________");
                     }
                 }
@@ -189,15 +190,50 @@ public class DB_Handler {
                 Statement stat = conn.createStatement();
                 DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
                 model.setRowCount(0); //clear the table
+                counter = 0;
 
                 try (ResultSet rs = stat.executeQuery("select * from Transactions order by Date desc;")) {
                     while (rs.next()) {
 
-                        model.insertRow(model.getRowCount(), new Object[]{rs.getDate("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"}); //Insert new rows
+                        model.insertRow(model.getRowCount(), new Object[]{rs.getString("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"}); //Insert new rows
                         MainClass.statementTable.getRowSorter().toggleSortOrder(0); //Sort the columns by default
+                        counter++;
 
                     }
                 }
+                checkCount(counter);
+
+            }
+        } catch (SQLException sql) {
+            System.out.println("System cannot get data");
+        }
+
+    }
+
+    public static void transactionFilter() throws Exception {
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
+                Statement stat = conn.createStatement();
+                DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
+                model.setRowCount(0); //clear the table
+
+                String dateSelected = ((JTextField) MainClass.statementDatePicker.getDateEditor().getUiComponent()).getText();
+
+                counter = 0;
+
+                try (ResultSet rs = stat.executeQuery("select * from Transactions Where Date = '" + dateSelected + "';")) {
+                    while (rs.next()) {
+
+                        model.insertRow(model.getRowCount(), new Object[]{rs.getString("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"}); //Insert new rows
+                        MainClass.statementTable.getRowSorter().toggleSortOrder(0); //Sort the columns by default
+                        counter++;
+                    }
+                }
+
+                checkCount(counter);
+
             }
         } catch (SQLException sql) {
             System.out.println("System cannot get data");
@@ -205,32 +241,20 @@ public class DB_Handler {
 
     }
     
-    public static void transactionFilter() throws Exception {
+    /**
+     *
+     * @param count
+     */
+    public static void checkCount(int count) {
 
-//        try {
-//            Class.forName("org.sqlite.JDBC");
-//            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-//                Statement stat = conn.createStatement();
-//                DefaultTableModel model = (DefaultTableModel) MainClass.statementTable.getModel();
-//                model.setRowCount(0); //clear the table
-                
-//                String dateSelected = MainClass.DateCombofilter.getSelectedDate().toString();
+        if (count == 0) {
 
-//                try (ResultSet rs = stat.executeQuery("select * from Transactions WHERE Date =" + dateSelected)) {
-//                    while (rs.next()) {
+            MainClass.recordCount.setText("No Records");
+        } else {
 
-//                        model.insertRow(model.getRowCount(), new Object[]{rs.getDate("Date"), rs.getString("Expense"), rs.getDouble("Amount"), "In/Out"}); //Insert new rows
-//                        MainClass.statementTable.getRowSorter().toggleSortOrder(0); //Sort the columns by default
-//                            
-//                    }
-//                }
-//            }
-//        } catch (SQLException sql) {
-//            System.out.println("System cannot get data");
-//        }
+            MainClass.recordCount.setText("Record Count: " + count);
+        }
 
     }
-    
-    
 
 }

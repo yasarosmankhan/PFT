@@ -124,9 +124,9 @@ public class MainClass extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         statementTable = new javax.swing.JTable();
         refreshButton = new javax.swing.JButton();
-        DateCombofilter = new datechooser.beans.DateChooserCombo();
-        dateChooserDialog1 = new datechooser.beans.DateChooserDialog();
-        dateChooserDialog2 = new datechooser.beans.DateChooserDialog();
+        statementDatePicker = new com.toedter.calendar.JDateChooser();
+        recordCount = new javax.swing.JLabel();
+        statement_ok = new javax.swing.JButton();
         BackgroundPanel = new javax.swing.JPanel();
 
         buttonPanel.setMinimumSize(new java.awt.Dimension(170, 501));
@@ -724,12 +724,21 @@ public class MainClass extends javax.swing.JFrame {
             }
         });
 
+        recordCount.setText("No Records");
+
+        statement_ok.setText("OK");
+        statement_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statement_okActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout statementPanelLayout = new javax.swing.GroupLayout(statementPanel);
         statementPanel.setLayout(statementPanelLayout);
         statementPanelLayout.setHorizontalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(statementPanelLayout.createSequentialGroup()
                         .addComponent(refreshButton)
@@ -737,20 +746,24 @@ public class MainClass extends javax.swing.JFrame {
                         .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(totalout_label1)
                             .addComponent(totalin_label1))
-                        .addGap(124, 124, 124))
+                        .addGap(124, 411, Short.MAX_VALUE))
                     .addGroup(statementPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(until_label1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DateCombofilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 21, Short.MAX_VALUE))
-            .addGroup(statementPanelLayout.createSequentialGroup()
-                .addGap(265, 265, 265)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(218, 218, 218)
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(statementPanelLayout.createSequentialGroup()
+                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, statementPanelLayout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(until_label1)
+                                .addGap(30, 30, 30)
+                                .addComponent(statementDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(statement_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(recordCount))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 30, Short.MAX_VALUE))))
         );
         statementPanelLayout.setVerticalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -758,21 +771,22 @@ public class MainClass extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(statementPanelLayout.createSequentialGroup()
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(until_label1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(totalin_label1)
-                            .addComponent(refreshButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(totalout_label1)
-                        .addGap(28, 28, 28))
-                    .addGroup(statementPanelLayout.createSequentialGroup()
-                        .addComponent(DateCombofilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(statementDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(statement_ok)
+                        .addComponent(recordCount)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalin_label1)
+                    .addComponent(refreshButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(totalout_label1)
+                .addGap(28, 28, 28))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -859,7 +873,7 @@ public class MainClass extends javax.swing.JFrame {
             try {
                 DB_Handler.transactionsEntry(monthlyBudgetDouble, monthlySalaryDouble, otherFieldInDouble, rentFieldDouble, contractsFieldDouble,
                         travelFieldDouble, otherlFieldDouble, flexiTravelFieldDouble, flexiOtherFieldDouble,
-                        miscellaneousFieldDouble, calendarCustom.getDate());
+                        miscellaneousFieldDouble, dateLabel.getText());
             } catch (Exception ex) {
                 Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -975,6 +989,14 @@ public class MainClass extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_flexiOtherFieldActionPerformed
 
+    private void statement_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statement_okActionPerformed
+        try {
+            DB_Handler.transactionFilter();
+        } catch (Exception ex) {
+            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_statement_okActionPerformed
+
     public void savings() {
         String savingValue = enterManually1Field.getText(); //get the saving value from the textbox entry
         int update_savings = Integer.parseInt(savingValue); //get the value from the text field
@@ -1026,7 +1048,6 @@ public class MainClass extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackgroundPanel;
-    public static datechooser.beans.DateChooserCombo DateCombofilter;
     private javax.swing.JLabel budgetLabel;
     private static javax.swing.JPanel buttonPanel;
     public static com.toedter.calendar.JCalendar calendarCustom;
@@ -1034,8 +1055,6 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel contractsLabel;
     private javax.swing.JButton dasboardButton;
     private static javax.swing.JPanel dashboardPanel;
-    private datechooser.beans.DateChooserDialog dateChooserDialog1;
-    private datechooser.beans.DateChooserDialog dateChooserDialog2;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel duration_label;
     private javax.swing.JSlider duration_slider;
@@ -1075,6 +1094,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JTextField otherlField;
     private javax.swing.JLabel outLabel;
     private javax.swing.JLabel outTotal;
+    public static javax.swing.JLabel recordCount;
     public static javax.swing.JButton refreshButton;
     private javax.swing.JLabel remainingBudgetLabel;
     private javax.swing.JTextField rentField;
@@ -1085,8 +1105,10 @@ public class MainClass extends javax.swing.JFrame {
     private static javax.swing.JLabel saving_label;
     private static javax.swing.JSlider saving_slider;
     private javax.swing.JButton statementButton;
+    public static com.toedter.calendar.JDateChooser statementDatePicker;
     private javax.swing.JPanel statementPanel;
     public static javax.swing.JTable statementTable;
+    private javax.swing.JButton statement_ok;
     private javax.swing.JButton statisticsButton;
     private static javax.swing.JPanel statisticsPanel;
     private javax.swing.JLabel totalBudget;
