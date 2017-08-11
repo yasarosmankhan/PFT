@@ -552,6 +552,7 @@ public class MainClass extends javax.swing.JFrame {
         duration_slider.setMaximum(12);
         duration_slider.setPaintLabels(true);
         duration_slider.setPaintTicks(true);
+        duration_slider.setValue(0);
         duration_slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 duration_sliderStateChanged(evt);

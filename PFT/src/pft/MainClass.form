@@ -779,6 +779,7 @@
             <Property name="maximum" type="int" value="12"/>
             <Property name="paintLabels" type="boolean" value="true"/>
             <Property name="paintTicks" type="boolean" value="true"/>
+            <Property name="value" type="int" value="0"/>
           </Properties>
           <Events>
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="duration_sliderStateChanged"/>
